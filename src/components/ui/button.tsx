@@ -12,8 +12,8 @@ export function Button({ variant = "primary", size = "md", className, ...props }
             className={cn(
                 "rounded-[var(--radius-md)] font-medium transition-colors",
                 variant === "primary" && "bg-[var(--color-primary)] text-white hover:opacity-90",
-                variant === "secondary" && "border border-[var(--color-border)] text-black hover:bg-zinc-50",
-                variant === "ghost" && "text-black hover:bg-zinc-100",
+                variant === "secondary" && "border border-[var(--color-border)] text-[var(--neutral900)] hover:bg-[var(--neutral50)]",
+                variant === "ghost" && "text-[var(--neutral900)] hover:bg-[var(--neutral100)]",
                 size === "sm" && "px-3 py-1.5 text-sm",
                 size === "md" && "px-4 py-2 text-sm",
                 size === "lg" && "px-5 py-2.5 text-base",

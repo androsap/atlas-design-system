@@ -21,8 +21,8 @@ export function DocsTabs({ children }: { children: React.ReactNode[] }) {
                         key={tab.value}
                         value={tab.value}
                         className={cn(
-                            "px-3.5 py-2 text-sm whitespace-nowrap text-zinc-500",
-                            "data-[state=active]:text-black data-[state=active]:border-b-2 data-[state=active]:border-black"
+                            "px-3.5 py-2 text-sm whitespace-nowrap text-[var(--neutral500)]",
+                            "data-[state=active]:text-[var(--neutral900)] data-[state=active]:border-b-2 data-[state=active]:border-[var(--neutral900)]"
                         )}
                     >
                         {tab.label}
