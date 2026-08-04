@@ -7,8 +7,29 @@ import {
     Accessibility,
     Braces,
     ArrowRight,
+    Layers,
+    ShieldCheck,
+    Code2,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+
+const VALUE_PROPS = [
+    {
+        icon: Layers,
+        title: "Consistent",
+        description: "One source of truth for color, type and spacing across every product.",
+    },
+    {
+        icon: ShieldCheck,
+        title: "Accessible by default",
+        description: "Contrast, focus states and semantics are handled in the component, not bolted on.",
+    },
+    {
+        icon: Code2,
+        title: "Token-driven",
+        description: "Styles map directly to design tokens, so Figma and code never drift apart.",
+    },
+]
 
 const FOUNDATIONS = [
     {
@@ -100,6 +121,25 @@ export default function Home() {
 {`export const primary500 = "#3b58a7";
 export const secondary500 = "#009688";`}
                         </pre>
+                    </div>
+                </div>
+            </section>
+
+            {/* Why Atlas */}
+            <section className="border-t border-[var(--neutral100)]">
+                <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
+                    <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
+                        {VALUE_PROPS.map(({ icon: Icon, title, description }) => (
+                            <div key={title} className="flex flex-col items-start gap-3">
+                                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--secondary50)] text-[var(--secondary600)]">
+                                    <Icon size={20} />
+                                </span>
+                                <p className="text-sm font-semibold text-[var(--neutral900)]">
+                                    {title}
+                                </p>
+                                <p className="text-sm text-[var(--neutral500)]">{description}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>

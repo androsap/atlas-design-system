@@ -394,75 +394,75 @@
   "lineHeights": {
     "0": {
       "$type": "lineHeights",
-      "$value": 120
+      "$value": "120px"
     },
     "1": {
       "$type": "lineHeights",
-      "$value": 64
+      "$value": "64px"
     },
     "2": {
       "$type": "lineHeights",
-      "$value": 56
+      "$value": "56px"
     },
     "3": {
       "$type": "lineHeights",
-      "$value": 56
+      "$value": "56px"
     },
     "4": {
       "$type": "lineHeights",
-      "$value": 42
+      "$value": "42px"
     },
     "5": {
       "$type": "lineHeights",
-      "$value": 34
+      "$value": "34px"
     },
     "6": {
       "$type": "lineHeights",
-      "$value": 28
+      "$value": "28px"
     },
     "7": {
       "$type": "lineHeights",
-      "$value": 25
+      "$value": "25px"
     },
     "8": {
       "$type": "lineHeights",
-      "$value": 22
+      "$value": "22px"
     },
     "9": {
       "$type": "lineHeights",
-      "$value": 20
+      "$value": "20px"
     },
     "10": {
       "$type": "lineHeights",
-      "$value": 28
+      "$value": "28px"
     },
     "11": {
       "$type": "lineHeights",
-      "$value": 22
+      "$value": "22px"
     },
     "12": {
       "$type": "lineHeights",
-      "$value": 20
+      "$value": "20px"
     },
     "13": {
       "$type": "lineHeights",
-      "$value": 20
+      "$value": "20px"
     },
     "14": {
       "$type": "lineHeights",
-      "$value": 17
+      "$value": "17px"
     },
     "15": {
       "$type": "lineHeights",
-      "$value": 16
+      "$value": "16px"
     },
     "16": {
       "$type": "lineHeights",
-      "$value": 14
+      "$value": "14px"
     },
     "17": {
       "$type": "lineHeights",
-      "$value": 15
+      "$value": "15px"
     }
   },
   "fontWeights": {
