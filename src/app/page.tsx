@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import {
     Palette,
     Type,
@@ -7,27 +8,32 @@ import {
     Accessibility,
     Braces,
     ArrowRight,
+    Eye,
     Layers,
-    ShieldCheck,
-    Code2,
+    TrendingUp,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-const VALUE_PROPS = [
+const PRINCIPLES = [
+    {
+        icon: Eye,
+        title: "Clarity",
+        description: "Clear, unambiguous language and hierarchy for smooth communication across teams.",
+    },
     {
         icon: Layers,
-        title: "Consistent",
-        description: "One source of truth for color, type and spacing across every product.",
+        title: "Consistency",
+        description: "Shared components and patterns so every product speaks with one voice.",
     },
     {
-        icon: ShieldCheck,
-        title: "Accessible by default",
-        description: "Contrast, focus states and semantics are handled in the component, not bolted on.",
+        icon: TrendingUp,
+        title: "Scalability",
+        description: "Foundations built to support the growth of the whole ecosystem, not just one product.",
     },
     {
-        icon: Code2,
-        title: "Token-driven",
-        description: "Styles map directly to design tokens, so Figma and code never drift apart.",
+        icon: Accessibility,
+        title: "Accessibility",
+        description: "Inclusive experiences by default, designed to work for everyone.",
     },
 ]
 
@@ -68,68 +74,80 @@ export default function Home() {
     return (
         <div className="flex flex-1 flex-col">
             {/* Hero */}
-            <section className="mx-auto grid w-full max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:items-center md:px-10 md:py-28">
-                <div className="flex flex-col items-start gap-6">
-                    <span className="rounded-full border border-[var(--neutral150)] px-3 py-1 text-xs font-medium text-[var(--neutral600)]">
-                        v0.1 — early access
-                    </span>
-                    <h1
-                        className="text-[var(--neutral900)]"
-                        style={{ font: "var(--displayMd)" }}
-                    >
-                        Better products, built by design.
-                    </h1>
-                    <p className="max-w-md text-lg text-[var(--neutral500)]" style={{ font: "var(--bodyLg)" }}>
-                        Atlas is a design system with foundations, components and guidelines
-                        for building consistent, accessible product experiences.
-                    </p>
-                    <div className="flex flex-wrap items-center gap-3">
-                        <Link
-                            href="/components/button"
-                            className="rounded-[var(--radius-md)] bg-[var(--color-primary)] px-5 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
+            <section className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center">
+                <div className="mx-auto grid w-full max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:items-center md:px-10 md:py-28">
+                    <div className="flex flex-col items-start gap-6">
+                        <span className="rounded-full border border-[var(--neutral150)] px-3 py-1 text-xs font-medium uppercase tracking-wide text-[var(--neutral600)]">
+                            Asyst Design System
+                        </span>
+                        <h1
+                            className="max-w-lg text-balance text-[var(--neutral900)]"
+                            style={{ font: "var(--displayMd)" }}
                         >
-                            Get started
-                        </Link>
-                        <Link
-                            href="#foundations"
-                            className="rounded-[var(--radius-md)] border border-[var(--neutral150)] px-5 py-3 text-sm font-medium text-[var(--neutral900)] transition-colors hover:bg-[var(--neutral50)]"
-                        >
-                            Explore foundations
-                        </Link>
+                            One language. One foundation. Every experience.
+                        </h1>
+                        <div className="flex flex-wrap items-center gap-3">
+                            <Link
+                                href="/components/button"
+                                className="rounded-[var(--radius-md)] bg-[var(--color-primary)] px-5 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
+                            >
+                                Get started
+                            </Link>
+                            <Link
+                                href="#foundations"
+                                className="rounded-[var(--radius-md)] border border-[var(--neutral150)] px-5 py-3 text-sm font-medium text-[var(--neutral900)] transition-colors hover:bg-[var(--neutral50)]"
+                            >
+                                Explore foundations
+                            </Link>
+                        </div>
                     </div>
-                </div>
 
-                <div
-                    className="rounded-2xl border border-[var(--neutral100)] bg-[var(--neutral25)] p-6"
-                    style={{ boxShadow: "var(--level2)" }}
-                >
-                    <p className="text-xs font-medium text-[var(--neutral500)]">tokens/color.ts</p>
-                    <div className="mt-4 grid grid-cols-6 gap-2">
-                        {["primary500", "secondary500", "info500", "success500", "warning500", "danger500"].map(
-                            (token) => (
-                                <div key={token} className="flex flex-col items-center gap-1.5">
-                                    <span
-                                        className="h-9 w-9 rounded-lg"
-                                        style={{ background: `var(--${token})` }}
-                                    />
-                                </div>
-                            )
-                        )}
-                    </div>
-                    <div className="mt-6 rounded-lg bg-[var(--neutral900)] p-4">
-                        <pre className="overflow-x-auto text-xs text-[var(--neutral100)]">
-{`export const primary500 = "#3b58a7";
-export const secondary500 = "#009688";`}
-                        </pre>
+                    <div>
+                        <Image
+                            src="/asyst_ribbon.svg"
+                            alt="Asyst design system ribbon"
+                            width={809}
+                            height={822}
+                            className="h-auto w-full"
+                            priority
+                        />
                     </div>
                 </div>
             </section>
 
-            {/* Why Atlas */}
-            <section className="border-t border-[var(--neutral100)]">
-                <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
-                    <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
-                        {VALUE_PROPS.map(({ icon: Icon, title, description }) => (
+            {/* About */}
+            <section className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center border-t border-[var(--neutral100)]">
+                <div className="mx-auto max-w-7xl px-6 md:px-10">
+                    <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:gap-16">
+                        <p className="text-xs font-medium uppercase tracking-wide text-[var(--neutral400)]">
+                            About Atlas
+                        </p>
+                        <p
+                            className="max-w-2xl text-[var(--neutral600)]"
+                            style={{ font: "var(--bodyLg)" }}
+                        >
+                            Atlas is the ASYST Technology Language and Design System — a unified
+                            system for creating consistent, accessible and scalable digital
+                            experiences across PT. Aero Systems Indonesia.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Principles */}
+            <section className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center border-t border-[var(--neutral100)]">
+                <div className="mx-auto max-w-7xl px-6 md:px-10">
+                    <div className="max-w-xl">
+                        <h2 className="text-[var(--neutral900)]" style={{ font: "var(--headingMd)" }}>
+                            Design principles
+                        </h2>
+                        <p className="mt-3 text-[var(--neutral500)]" style={{ font: "var(--bodyMd)" }}>
+                            Inspired by a real-life atlas, Atlas unites principles, components,
+                            patterns and guidelines into a single source of truth for design.
+                        </p>
+                    </div>
+                    <div className="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+                        {PRINCIPLES.map(({ icon: Icon, title, description }) => (
                             <div key={title} className="flex flex-col items-start gap-3">
                                 <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--secondary50)] text-[var(--secondary600)]">
                                     <Icon size={20} />
@@ -145,14 +163,18 @@ export const secondary500 = "#009688";`}
             </section>
 
             {/* Foundations */}
-            <section id="foundations" className="border-t border-[var(--neutral100)] bg-[var(--neutral25)]">
-                <div className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+            <section
+                id="foundations"
+                className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center border-t border-[var(--neutral100)] bg-[var(--neutral25)]"
+            >
+                <div className="mx-auto max-w-7xl px-6 md:px-10">
                     <div className="max-w-xl">
                         <h2 className="text-[var(--neutral900)]" style={{ font: "var(--headingMd)" }}>
                             Foundations
                         </h2>
                         <p className="mt-3 text-[var(--neutral500)]" style={{ font: "var(--bodyMd)" }}>
-                            The building blocks every Atlas component is made from.
+                            The building blocks every Atlas component is made from — use this as
+                            the only source of truth for design.
                         </p>
                     </div>
                     <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -175,8 +197,8 @@ export const secondary500 = "#009688";`}
             </section>
 
             {/* Components showcase */}
-            <section className="border-t border-[var(--neutral100)]">
-                <div className="mx-auto max-w-7xl px-6 py-20 md:px-10">
+            <section className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center border-t border-[var(--neutral100)]">
+                <div className="mx-auto max-w-7xl px-6 md:px-10">
                     <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
                         <div className="max-w-xl">
                             <h2 className="text-[var(--neutral900)]" style={{ font: "var(--headingMd)" }}>
@@ -208,15 +230,15 @@ export const secondary500 = "#009688";`}
             </section>
 
             {/* CTA band */}
-            <section className="border-t border-[var(--neutral100)] bg-[var(--primary900)]">
-                <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 px-6 py-20 md:flex-row md:items-center md:justify-between md:px-10">
+            <section className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center border-t border-[var(--neutral100)] bg-[var(--primary900)]">
+                <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 px-6 md:flex-row md:items-center md:justify-between md:px-10">
                     <div>
                         <h2 className="text-white" style={{ font: "var(--headingMd)" }}>
-                            Start building with Atlas
+                            One language. One foundation. Every experience.
                         </h2>
                         <p className="mt-3 max-w-md text-[var(--primary100)]" style={{ font: "var(--bodyMd)" }}>
-                            Browse the component library and bring consistent design to your
-                            next project.
+                            Browse the component library and keep every product across the
+                            ecosystem speaking the same design language.
                         </p>
                     </div>
                     <Link

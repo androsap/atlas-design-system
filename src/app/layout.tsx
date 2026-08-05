@@ -15,8 +15,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Atlas Design System",
-  description: "Atlas Design System documentation",
+  title: "Atlas — ASYST Design System",
+  description: "ASYST Technology Language and Design System for PT. Aero Systems Indonesia.",
 };
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${manrope.variable} h-full antialiased`}
+      className={`${inter.variable} ${manrope.variable} h-full snap-y snap-mandatory scroll-smooth antialiased`}
     >
       <head>
         <script

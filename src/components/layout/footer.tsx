@@ -41,7 +41,7 @@ export function Footer() {
                             </span>
                         </div>
                         <p className="mt-3 max-w-[220px] text-sm text-[var(--neutral500)]">
-                            A design system for building consistent, accessible product experiences.
+                            The single source of truth for design at PT. Aero Systems Indonesia.
                         </p>
                     </div>
                     {FOOTER_COLUMNS.map((col) => (

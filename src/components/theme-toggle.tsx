@@ -1,7 +1,7 @@
 "use client"
 
-import { useSyncExternalStore } from "react"
-import { Moon, Sun } from "lucide-react"
+import { useSyncExternalStore } from "react";
+import { Moon, Sun } from "lucide-react";
 
 type Theme = "light" | "dark"
 type Listener = () => void
@@ -31,7 +31,7 @@ export function ThemeToggle() {
     const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 
     if (!theme) {
-        return <span className="h-9 w-9" aria-hidden />
+        return <span className="h-9 w-20" aria-hidden />
     }
 
     return (
@@ -39,9 +39,10 @@ export function ThemeToggle() {
             type="button"
             aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="flex h-9 w-9 items-center justify-center rounded-[var(--radius-md)] text-[var(--neutral600)] transition-colors hover:bg-[var(--neutral50)] hover:text-[var(--neutral900)]"
+            className="flex items-center gap-2 whitespace-nowrap rounded-[var(--radius-md)] bg-[var(--color-primary)] px-4 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90"
         >
-            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+            {theme === "dark" ? "Light theme" : "Dark theme"}
         </button>
     )
 }

@@ -20,7 +20,7 @@ export function Header() {
                         className="text-lg text-[var(--neutral900)]"
                         style={{ font: "var(--titleMd)" }}
                     >
-                        Atlas
+                        Atlas Asyst Design
                     </span>
                 </Link>
 
@@ -37,19 +37,7 @@ export function Header() {
                 </nav>
 
                 <div className="flex items-center gap-3">
-                    <Link
-                        href="/components/button"
-                        className="hidden text-sm font-medium text-[var(--neutral600)] hover:text-[var(--neutral900)] sm:inline"
-                    >
-                        Browse components
-                    </Link>
                     <ThemeToggle />
-                    <Link
-                        href="/components/button"
-                        className="rounded-[var(--radius-md)] bg-[var(--color-primary)] px-4 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90"
-                    >
-                        Get started
-                    </Link>
                 </div>
             </div>
         </header>
