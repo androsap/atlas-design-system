@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { ScrollSnapController } from "@/components/scroll-snap-controller";
 import "./globals.css";
 
 const inter = Inter({
@@ -28,7 +29,8 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${manrope.variable} h-full snap-y snap-mandatory scroll-smooth antialiased`}
+      data-scroll-behavior="smooth"
+      className={`${inter.variable} ${manrope.variable} h-full scroll-smooth antialiased`}
     >
       <head>
         <script
@@ -38,6 +40,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
+        <ScrollSnapController />
         <Header />
         <main className="flex flex-1 flex-col">{children}</main>
         <Footer />

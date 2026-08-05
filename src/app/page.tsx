@@ -13,6 +13,7 @@ import {
     TrendingUp,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { HeroCursors } from "@/components/hero-cursors"
 
 const PRINCIPLES = [
     {
@@ -76,7 +77,8 @@ export default function Home() {
             {/* Hero */}
             <section className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center">
                 <div className="mx-auto grid w-full max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:items-center md:px-10 md:py-28">
-                    <div className="flex flex-col items-start gap-6">
+                    <div className="relative flex flex-col items-start gap-6">
+                        <HeroCursors />
                         <span className="rounded-full border border-[var(--neutral150)] px-3 py-1 text-xs font-medium uppercase tracking-wide text-[var(--neutral600)]">
                             Asyst Design System
                         </span>
