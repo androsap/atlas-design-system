@@ -1,18 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import {
-    Palette,
-    Type,
-    Shapes,
-    LayoutGrid,
-    Accessibility,
-    Braces,
-    ArrowRight,
-    Eye,
-    Layers,
-    TrendingUp,
-} from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Accessibility, ArrowRight, Eye, Layers, TrendingUp } from "lucide-react"
 import { HeroCursors } from "@/components/hero-cursors"
 
 const PRINCIPLES = [
@@ -35,39 +23,6 @@ const PRINCIPLES = [
         icon: Accessibility,
         title: "Accessibility",
         description: "Inclusive experiences by default, designed to work for everyone.",
-    },
-]
-
-const FOUNDATIONS = [
-    {
-        icon: Palette,
-        title: "Color",
-        description: "Neutral, brand and status palettes tuned for contrast and consistency.",
-    },
-    {
-        icon: Type,
-        title: "Typography",
-        description: "A Manrope + Inter type scale from display headings down to captions.",
-    },
-    {
-        icon: Shapes,
-        title: "Iconography",
-        description: "A shared icon set that keeps interface language consistent everywhere.",
-    },
-    {
-        icon: LayoutGrid,
-        title: "Grid & spacing",
-        description: "Layout primitives and spacing scale for building balanced pages.",
-    },
-    {
-        icon: Accessibility,
-        title: "Accessibility",
-        description: "Guidelines baked into every component so accessible is the default.",
-    },
-    {
-        icon: Braces,
-        title: "Tokens",
-        description: "Design tokens synced from Figma straight into code, no drift.",
     },
 ]
 
@@ -96,7 +51,7 @@ export default function Home() {
                                 Get started
                             </Link>
                             <Link
-                                href="#foundations"
+                                href="/foundations"
                                 className="rounded-[var(--radius-md)] border border-[var(--neutral150)] px-5 py-3 text-sm font-medium text-[var(--neutral900)] transition-colors hover:bg-[var(--neutral50)]"
                             >
                                 Explore foundations
@@ -118,14 +73,22 @@ export default function Home() {
             </section>
 
             {/* About */}
-            <section className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center border-t border-[var(--neutral100)]">
-                <div className="mx-auto max-w-7xl px-6 md:px-10">
-                    <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:gap-16">
+            <section className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center border-t border-[var(--neutral100)] bg-[var(--neutral25)]">
+                <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 md:grid-cols-2 md:px-10">
+                    <Image
+                        src="/illustration_1.png"
+                        alt="Atlas design system illustration"
+                        width={2008}
+                        height={2007}
+                        priority
+                        className="h-auto w-full max-w-md"
+                    />
+                    <div>
                         <p className="text-xs font-medium uppercase tracking-wide text-[var(--neutral400)]">
                             About Atlas
                         </p>
                         <p
-                            className="max-w-2xl text-[var(--neutral600)]"
+                            className="mt-4 max-w-md text-[var(--neutral600)]"
                             style={{ font: "var(--bodyLg)" }}
                         >
                             Atlas is the ASYST Technology Language and Design System — a unified
@@ -164,69 +127,53 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Foundations */}
-            <section
-                id="foundations"
-                className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center border-t border-[var(--neutral100)] bg-[var(--neutral25)]"
-            >
-                <div className="mx-auto max-w-7xl px-6 md:px-10">
-                    <div className="max-w-xl">
-                        <h2 className="text-[var(--neutral900)]" style={{ font: "var(--headingMd)" }}>
-                            Foundations
-                        </h2>
-                        <p className="mt-3 text-[var(--neutral500)]" style={{ font: "var(--bodyMd)" }}>
-                            The building blocks every Atlas component is made from — use this as
-                            the only source of truth for design.
-                        </p>
-                    </div>
-                    <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                        {FOUNDATIONS.map(({ icon: Icon, title, description }) => (
-                            <div
-                                key={title}
-                                className="rounded-xl border border-[var(--neutral100)] bg-[var(--neutral0)] p-6 transition-shadow hover:shadow-[var(--level2)]"
-                            >
-                                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--primary50)] text-[var(--primary500)]">
-                                    <Icon size={20} />
-                                </span>
-                                <p className="mt-4 text-sm font-semibold text-[var(--neutral900)]">
-                                    {title}
-                                </p>
-                                <p className="mt-1.5 text-sm text-[var(--neutral500)]">{description}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
             {/* Components showcase */}
-            <section className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center border-t border-[var(--neutral100)]">
-                <div className="mx-auto max-w-7xl px-6 md:px-10">
-                    <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
-                        <div className="max-w-xl">
-                            <h2 className="text-[var(--neutral900)]" style={{ font: "var(--headingMd)" }}>
-                                Components
-                            </h2>
-                            <p className="mt-3 text-[var(--neutral500)]" style={{ font: "var(--bodyMd)" }}>
-                                Production-ready building blocks, documented with usage guidelines
-                                and accessibility notes.
-                            </p>
-                        </div>
+            <section className="flex min-h-[600px] max-h-screen shrink-0 scroll-mt-16 snap-start flex items-start pt-16 overflow-hidden border-t border-[var(--neutral100)]">
+                <div className="mx-auto grid w-full max-w-7xl items-start px-6 pt-28 md:grid-cols-2 md:px-10 md:pt-36">
+                    <div className="relative bottom-30 z-10">
+                        <h1
+                            className="text-[var(--neutral900)]"
+                            style={{ font: "var(--displayMd)" }}
+                        >
+                            Accelerating
+                            <br />
+                            <span className="whitespace-nowrap">workflow development</span>
+                        </h1>
+                        <p
+                            className="mt-4 max-w-md text-[var(--neutral600)]"
+                            style={{ font: "var(--bodyLg)" }}
+                        >
+                            Production-ready building blocks, documented with usage guidelines and
+                            accessibility notes.
+                        </p>
                         <Link
                             href="/components/button"
-                            className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--primary500)] hover:underline"
+                            className="mt-6 inline-flex items-center gap-2 rounded-full border border-[var(--neutral200)] px-5 py-2.5 text-sm font-semibold text-[var(--neutral900)] transition-colors hover:bg-[var(--neutral50)]"
                         >
-                            Browse all components
+                            Discover more
                             <ArrowRight size={16} />
                         </Link>
                     </div>
 
-                    <div className="mt-10 rounded-xl border border-[var(--neutral100)] bg-[var(--neutral25)] p-10">
-                        <p className="mb-6 text-xs font-medium text-[var(--neutral500)]">Button</p>
-                        <div className="flex flex-wrap items-center gap-4">
-                            <Button variant="primary">Primary</Button>
-                            <Button variant="secondary">Secondary</Button>
-                            <Button variant="ghost">Ghost</Button>
-                        </div>
+                    <div className="relative bottom-[-80px] right-[600px] [perspective:1800px] [perspective-origin:50%_20%]">
+                        <Image
+                            src="/ss-01-white.jpg"
+                            alt="Atlas components preview"
+                            width={1560}
+                            height={860}
+                            className="relative z-[200] max-w-none
+                   [transform-origin:top] [transform:rotateX(48deg)_rotateZ(-16deg)]
+                   rounded-2xl border border-[var(--neutral100)] shadow-xl [html[data-theme=dark]_&]:hidden"
+                        />
+                        <Image
+                            src="/ss-01-black.jpg"
+                            alt="Atlas components preview"
+                            width={1560}
+                            height={860}
+                            className="relative z-[200] hidden max-w-none
+                   [transform-origin:top] [transform:rotateX(48deg)_rotateZ(-16deg)]
+                   rounded-2xl border border-[var(--neutral100)] shadow-xl [html[data-theme=dark]_&]:block"
+                        />
                     </div>
                 </div>
             </section>

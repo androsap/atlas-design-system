@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 const FOOTER_COLUMNS = [
     {
@@ -33,11 +34,22 @@ export function Footer() {
                 <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
                     <div className="col-span-2 sm:col-span-1">
                         <div className="flex items-center gap-2">
-                            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--primary500)] text-xs font-bold text-white">
-                                A
+                            <span className="relative flex h-8 w-8 items-center justify-center">
+                                <Image
+                                    src="/atlas_logo_black.svg"
+                                    alt="Atlas"
+                                    fill
+                                    className="object-contain [html[data-theme=dark]_&]:hidden"
+                                />
+                                <Image
+                                    src="/atlas_logo_white.svg"
+                                    alt="Atlas"
+                                    fill
+                                    className="hidden object-contain [html[data-theme=dark]_&]:block"
+                                />
                             </span>
                             <span className="text-base font-semibold text-[var(--neutral900)]">
-                                Atlas
+                                Atlas Design
                             </span>
                         </div>
                         <p className="mt-3 max-w-[220px] text-sm text-[var(--neutral500)]">
