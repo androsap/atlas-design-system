@@ -1,26 +1,27 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Accessibility, ArrowRight, Eye, Layers, TrendingUp } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { HeroCursors } from "@/components/hero-cursors"
+import { AnimatedGlobeBackground } from "@/components/animated-globe-background"
 
 const PRINCIPLES = [
     {
-        icon: Eye,
+        illustration: "/clarity_illustration.png",
         title: "Clarity",
         description: "Clear, unambiguous language and hierarchy for smooth communication across teams.",
     },
     {
-        icon: Layers,
+        illustration: "/consistency_illustration.png",
         title: "Consistency",
         description: "Shared components and patterns so every product speaks with one voice.",
     },
     {
-        icon: TrendingUp,
+        illustration: "/scalability_illustration.png",
         title: "Scalability",
         description: "Foundations built to support the growth of the whole ecosystem, not just one product.",
     },
     {
-        icon: Accessibility,
+        illustration: "/accessibility_illustration.png",
         title: "Accessibility",
         description: "Inclusive experiences by default, designed to work for everyone.",
     },
@@ -99,34 +100,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Principles */}
-            <section className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center border-t border-[var(--neutral100)]">
-                <div className="mx-auto max-w-7xl px-6 md:px-10">
-                    <div className="max-w-xl">
-                        <h2 className="text-[var(--neutral900)]" style={{ font: "var(--headingMd)" }}>
-                            Design principles
-                        </h2>
-                        <p className="mt-3 text-[var(--neutral500)]" style={{ font: "var(--bodyMd)" }}>
-                            Inspired by a real-life atlas, Atlas unites principles, components,
-                            patterns and guidelines into a single source of truth for design.
-                        </p>
-                    </div>
-                    <div className="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-                        {PRINCIPLES.map(({ icon: Icon, title, description }) => (
-                            <div key={title} className="flex flex-col items-start gap-3">
-                                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--secondary50)] text-[var(--secondary600)]">
-                                    <Icon size={20} />
-                                </span>
-                                <p className="text-sm font-semibold text-[var(--neutral900)]">
-                                    {title}
-                                </p>
-                                <p className="text-sm text-[var(--neutral500)]">{description}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
             {/* Components showcase */}
             <section className="flex min-h-[600px] max-h-screen shrink-0 scroll-mt-16 snap-start flex items-start pt-16 overflow-hidden border-t border-[var(--neutral100)]">
                 <div className="mx-auto grid w-full max-w-7xl items-start px-6 pt-28 md:grid-cols-2 md:px-10 md:pt-36">
@@ -161,41 +134,77 @@ export default function Home() {
                             alt="Atlas components preview"
                             width={1560}
                             height={860}
-                            className="relative z-[200] max-w-none
-                   [transform-origin:top] [transform:rotateX(48deg)_rotateZ(-16deg)]
-                   rounded-2xl border border-[var(--neutral100)] shadow-xl [html[data-theme=dark]_&]:hidden"
+                            className="relative z-[200] max-w-none [transform-origin:top] [transform:rotateX(48deg)_rotateZ(-16deg)] rounded-2xl border border-[var(--neutral100)] shadow-xl [html[data-theme=dark]_&]:hidden"
                         />
                         <Image
                             src="/ss-01-black.jpg"
                             alt="Atlas components preview"
                             width={1560}
                             height={860}
-                            className="relative z-[200] hidden max-w-none
-                   [transform-origin:top] [transform:rotateX(48deg)_rotateZ(-16deg)]
-                   rounded-2xl border border-[var(--neutral100)] shadow-xl [html[data-theme=dark]_&]:block"
+                            className="relative z-[200] hidden max-w-none [transform-origin:top] [transform:rotateX(48deg)_rotateZ(-16deg)] rounded-2xl border border-[var(--neutral100)] shadow-xl [html[data-theme=dark]_&]:block"
                         />
                     </div>
                 </div>
             </section>
 
-            {/* CTA band */}
-            <section className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center border-t border-[var(--neutral100)] bg-[var(--primary900)]">
-                <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 px-6 md:flex-row md:items-center md:justify-between md:px-10">
-                    <div>
-                        <h2 className="text-white" style={{ font: "var(--headingMd)" }}>
-                            One language. One foundation. Every experience.
+            {/* Principles */}
+            <section className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center border-t border-[var(--neutral100)]">
+                <div className="mx-auto max-w-7xl px-6 md:px-10">
+                    <div className="mx-auto max-w-xl text-center">
+                        <h2 className="text-[var(--neutral900)]" style={{ font: "var(--displayLg)" }}>
+                            Design Principles
                         </h2>
-                        <p className="mt-3 max-w-md text-[var(--primary100)]" style={{ font: "var(--bodyMd)" }}>
+                    </div>
+                    <div className="py-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                        {PRINCIPLES.map(({ illustration, title, description }) => (
+                            <div
+                                key={title}
+                                className="flex flex-col items-center rounded-2xl border border-[var(--neutral100)] p-6 text-center"
+                            >
+                                <Image src={illustration} alt="" width={80} height={80} />
+                                <p className="mt-3 text-sm font-semibold text-[var(--neutral900)]">
+                                    {title}
+                                </p>
+                                <p className="mt-1.5 text-sm text-[var(--neutral500)]">{description}</p>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="mx-auto max-w-xl text-center">
+                        <p className="mt-3 text-[var(--neutral500)]" style={{ font: "var(--bodyMd)" }}>
+                            Inspired by a real-life atlas, Atlas unites principles, components,
+                            patterns and guidelines into a single source of truth for design.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA band */}
+            <section
+                className="relative flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center overflow-hidden border-t border-[var(--neutral100)]"
+                style={{
+                    background:
+                        "radial-gradient(ellipse 900px 700px at 8% 92%, #223160 0%, transparent 60%), var(--primary900)",
+                }}
+            >
+                <AnimatedGlobeBackground />
+                <div className="relative z-10 mx-auto w-full max-w-7xl items-center gap-12 px-6 md:grid-cols-2 md:px-10">
+                    <div>
+                        <h2 className="text-white" style={{ font: "var(--displayLg)" }}>
+                            One language. <br />One foundation. <br />Every experience.
+                        </h2>
+                        <p className="mt-8 max-w-md text-[var(--primary100)]" style={{ font: "var(--bodyMd)" }}>
                             Browse the component library and keep every product across the
                             ecosystem speaking the same design language.
                         </p>
                     </div>
-                    <Link
-                        href="/components/button"
-                        className="shrink-0 rounded-[var(--radius-md)] bg-white px-5 py-3 text-sm font-medium text-[var(--primary900)] transition-opacity hover:opacity-90"
-                    >
-                        Browse components
-                    </Link>
+                    <div className="mt-8">
+                        <Link
+                            href="/components/button"
+                            className="shrink-0 rounded-[var(--radius-md)] bg-white px-5 py-3 text-sm font-medium text-[var(--primary900)] transition-opacity hover:opacity-90"
+                        >
+                            Browse components
+                        </Link>
+                    </div>
                 </div>
             </section>
         </div>

@@ -52,3 +52,27 @@ body {
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
+
+@keyframes atlas-rotate-track {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-1000px);
+  }
+}
+
+.atlas-land-track {
+  animation: atlas-rotate-track 70s linear infinite;
+}
+
+.atlas-cloud-track {
+  animation: atlas-rotate-track 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atlas-land-track,
+  .atlas-cloud-track {
+    animation: none !important;
+  }
+}
