@@ -4,8 +4,8 @@ import { ThemeToggle } from "@/components/theme-toggle"
 
 const NAV_LINKS = [
     { label: "Foundations", href: "/foundations" },
-    { label: "Components", href: "/components/button" },
-    { label: "News", href: "/#foundations" },
+    { label: "Components", href: "/components" },
+    { label: "News", href: "/news" },
 ]
 
 export function Header() {

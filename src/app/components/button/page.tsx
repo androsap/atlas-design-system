@@ -59,7 +59,7 @@ export default function ButtonPage() {
                     </div>
                     <ol className="space-y-3">
                         <li className="flex gap-3">
-                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--primary50)] text-xs font-semibold text-[var(--primary600)]">
+                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--surface-accent-subtle)] text-xs font-semibold text-[var(--text-accent-subtle-label)]">
                                 1
                             </span>
                             <p className="text-sm text-[var(--neutral600)]">
@@ -69,7 +69,7 @@ export default function ButtonPage() {
                             </p>
                         </li>
                         <li className="flex gap-3">
-                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--primary50)] text-xs font-semibold text-[var(--primary600)]">
+                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--surface-accent-subtle)] text-xs font-semibold text-[var(--text-accent-subtle-label)]">
                                 2
                             </span>
                             <p className="text-sm text-[var(--neutral600)]">

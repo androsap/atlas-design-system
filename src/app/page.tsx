@@ -3,6 +3,7 @@ import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 import { HeroCursors } from "@/components/hero-cursors"
 import { AnimatedGlobeBackground } from "@/components/animated-globe-background"
+import { ScrollProgressDots } from "@/components/scroll-progress-dots"
 
 const PRINCIPLES = [
     {
@@ -30,8 +31,10 @@ const PRINCIPLES = [
 export default function Home() {
     return (
         <div className="flex flex-1 flex-col">
+            <ScrollProgressDots />
+
             {/* Hero */}
-            <section className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center">
+            <section id="hero" className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center">
                 <div className="mx-auto grid w-full max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:items-center md:px-10 md:py-28">
                     <div className="relative flex flex-col items-start gap-6">
                         <HeroCursors />
@@ -74,7 +77,7 @@ export default function Home() {
             </section>
 
             {/* About */}
-            <section className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center border-t border-[var(--neutral100)] bg-[var(--neutral25)]">
+            <section id="about" className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center border-t border-[var(--neutral100)] bg-[var(--neutral25)]">
                 <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 md:grid-cols-2 md:px-10">
                     <Image
                         src="/illustration_1.png"
@@ -101,7 +104,7 @@ export default function Home() {
             </section>
 
             {/* Components showcase */}
-            <section className="flex min-h-[600px] max-h-screen shrink-0 scroll-mt-16 snap-start flex items-start pt-16 overflow-hidden border-t border-[var(--neutral100)]">
+            <section id="components" className="flex min-h-[600px] max-h-screen shrink-0 scroll-mt-16 snap-start flex items-start pt-16 overflow-hidden border-t border-[var(--neutral100)]">
                 <div className="mx-auto grid w-full max-w-7xl items-start px-6 pt-28 md:grid-cols-2 md:px-10 md:pt-36">
                     <div className="relative bottom-30 z-10">
                         <h1
@@ -148,7 +151,7 @@ export default function Home() {
             </section>
 
             {/* Principles */}
-            <section className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center border-t border-[var(--neutral100)]">
+            <section id="principles" className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center border-t border-[var(--neutral100)]">
                 <div className="mx-auto max-w-7xl px-6 md:px-10">
                     <div className="mx-auto max-w-xl text-center">
                         <h2 className="text-[var(--neutral900)]" style={{ font: "var(--displayLg)" }}>
@@ -180,6 +183,7 @@ export default function Home() {
 
             {/* CTA band */}
             <section
+                id="cta"
                 className="relative flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center overflow-hidden border-t border-[var(--neutral100)]"
                 style={{
                     background:

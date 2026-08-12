@@ -7,6 +7,26 @@
   --color-primary: var(--primary500);
   --color-border: var(--neutral100);
   --radius-md: 8px;
+
+  /*
+   * Semantic surface/text/icon tokens for "accent-subtle" areas — hero
+   * banners, preview panels, active nav pills, step badges. These used to
+   * be hardcoded to var(--primary50)/var(--primary600) etc. directly, which
+   * never adapts for dark mode (see the [data-theme="dark"] block below).
+   */
+  --surface-base: var(--neutral0);
+  --surface-raised: var(--neutral0);
+  --surface-accent-subtle: var(--primary50);
+  --surface-accent-subtle-border: transparent;
+  --text-accent-subtle-label: var(--primary600);
+  --text-accent-subtle-title: var(--primary900);
+  --text-accent-subtle-body: var(--primary700);
+  --icon-accent-subtle: var(--primary500);
+
+  /* var(--primary500) as *text* (links like "see more") is ~2.5:1 against
+     a dark surface — fails AA. --text-link stays primary500 in light
+     (already AA there) and lightens to primary300 in dark. */
+  --text-link: var(--primary500);
 }
 
 :root[data-theme="dark"] {
@@ -24,6 +44,27 @@
   --neutral800: #eff1f8;
   --neutral900: #f8f9fd;
   --neutral950: #ffffff;
+
+  /*
+   * Dark-mode "accent-subtle" surface: a dark elevated panel (one step
+   * lighter than --surface-raised) instead of a solid light-blue block —
+   * avoids the "glowing hole" look. Brand color is kept only in the small
+   * label/icon accents, not the whole surface. All contrast ratios below
+   * are checked against this surface (#2a2c32) and pass WCAG AA:
+   *   title  (neutral900 #f8f9fd)  -> 13.7:1
+   *   body   (neutral500 #bcc0c7)  ->  7.9:1
+   *   label  (info300    #75b8ff) ->  6.9:1
+   *   icon   (primary200  #a5b2d7) ->  6.8:1 (non-text, needs only 3:1)
+   */
+  --surface-base: var(--neutral0);
+  --surface-raised: var(--neutral25);
+  --surface-accent-subtle: var(--neutral50);
+  --surface-accent-subtle-border: rgba(255, 255, 255, 0.08);
+  --text-accent-subtle-label: var(--info300);
+  --text-accent-subtle-title: var(--neutral900);
+  --text-accent-subtle-body: var(--neutral500);
+  --icon-accent-subtle: var(--primary200);
+  --text-link: var(--primary300);
 }
 
 @theme inline {
