@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 
 const COMPONENTS = [
-    { name: "Button", href: "/components/button", status: "ready" as const },
+    { name: "Overview", href: "/components", status: "ready" as const },
+    { name: "Butt   on", href: "/components/button", status: "ready" as const },
     { name: "Input, Text Area", href: "#", status: "soon" as const },
     { name: "Dropdown", href: "#", status: "soon" as const },
     { name: "Checkbox", href: "#", status: "soon" as const },
@@ -27,14 +28,6 @@ export function ComponentsSidebar() {
 
     return (
         <nav className="flex flex-col gap-1.5">
-            <div className="mb-2 flex items-center gap-1.5 px-3">
-                <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--neutral400)]">
-                    Core components
-                </p>
-                <span className="rounded-full bg-[var(--surface-accent-subtle)] px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-[var(--text-accent-subtle-label)]">
-                    Alpha
-                </span>
-            </div>
             {COMPONENTS.map((item) => {
                 if (item.status === "soon") {
                     return (

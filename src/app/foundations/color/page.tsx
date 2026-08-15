@@ -1,4 +1,3 @@
-import { Layers } from "lucide-react"
 import {
     neutral0,
     neutral25,
@@ -36,18 +35,50 @@ import {
     secondary800,
     secondary900,
     secondary950,
+    info50,
     info100,
+    info200,
+    info300,
+    info400,
     info500,
+    info600,
     info700,
+    info800,
+    info900,
+    info950,
+    success50,
     success100,
+    success200,
+    success300,
+    success400,
     success500,
+    success600,
     success700,
+    success800,
+    success900,
+    success950,
+    warning50,
     warning100,
+    warning200,
+    warning300,
+    warning400,
     warning500,
+    warning600,
     warning700,
+    warning800,
+    warning900,
+    warning950,
+    danger50,
     danger100,
+    danger200,
+    danger300,
+    danger400,
     danger500,
+    danger600,
     danger700,
+    danger800,
+    danger900,
+    danger950,
 } from "@/tokens/generated"
 
 function hexToRgb(hex: string) {
@@ -74,91 +105,207 @@ const NEUTRAL = [
     { name: "neutral0", hex: neutral0 },
 ]
 
-const PRIMARY = [
-    { name: "primary950", hex: primary950 },
-    { name: "primary900", hex: primary900 },
-    { name: "primary800", hex: primary800 },
-    { name: "primary700", hex: primary700 },
-    { name: "primary600", hex: primary600 },
-    { name: "primary500", hex: primary500 },
-    { name: "primary400", hex: primary400 },
-    { name: "primary300", hex: primary300 },
-    { name: "primary200", hex: primary200 },
-    { name: "primary100", hex: primary100 },
-    { name: "primary50", hex: primary50 },
+const SHADE_ALIASES = [
+    { shade: "50", suffix: "bg" },
+    { shade: "100", suffix: "light" },
+    { shade: "200", suffix: "border" },
+    { shade: "300", suffix: "accent" },
+    { shade: "400", suffix: "indicator" },
+    { shade: "500", suffix: "default" },
+    { shade: "600", suffix: "strong" },
+    { shade: "700", suffix: "text" },
+    { shade: "800", suffix: "dark" },
+    { shade: "900", suffix: "darkest" },
+    { shade: "950", suffix: "near-black" },
 ]
 
-const SECONDARY = [
-    { name: "secondary950", hex: secondary950 },
-    { name: "secondary900", hex: secondary900 },
-    { name: "secondary800", hex: secondary800 },
-    { name: "secondary700", hex: secondary700 },
-    { name: "secondary600", hex: secondary600 },
-    { name: "secondary500", hex: secondary500 },
-    { name: "secondary400", hex: secondary400 },
-    { name: "secondary300", hex: secondary300 },
-    { name: "secondary200", hex: secondary200 },
-    { name: "secondary100", hex: secondary100 },
-    { name: "secondary50", hex: secondary50 },
+function statusGroup(name: string, description: string, hexes: string[]) {
+    return {
+        name,
+        description,
+        swatches: SHADE_ALIASES.map(({ shade, suffix }, i) => ({
+            name: shade,
+            hex: hexes[i],
+            alias: `${name} ${suffix}`,
+        })),
+    }
+}
+
+const BRAND_GROUPS = [
+    statusGroup("Primary", "The brand color — used for primary buttons, active states and links.", [
+        primary50, primary100, primary200, primary300, primary400, primary500, primary600, primary700, primary800, primary900, primary950,
+    ]),
+    statusGroup("Secondary", "Complements primary for accents, charts and secondary emphasis.", [
+        secondary50, secondary100, secondary200, secondary300, secondary400, secondary500, secondary600, secondary700, secondary800, secondary900, secondary950,
+    ]),
 ]
 
 const STATUS_GROUPS = [
-    {
-        label: "Success",
-        swatches: [
-            { name: "success100", hex: success100 },
-            { name: "success500", hex: success500 },
-            { name: "success700", hex: success700 },
-        ],
-    },
-    {
-        label: "Warning",
-        swatches: [
-            { name: "warning100", hex: warning100 },
-            { name: "warning500", hex: warning500 },
-            { name: "warning700", hex: warning700 },
-        ],
-    },
-    {
-        label: "Danger",
-        swatches: [
-            { name: "danger100", hex: danger100 },
-            { name: "danger500", hex: danger500 },
-            { name: "danger700", hex: danger700 },
-        ],
-    },
-    {
-        label: "Info",
-        swatches: [
-            { name: "info100", hex: info100 },
-            { name: "info500", hex: info500 },
-            { name: "info700", hex: info700 },
-        ],
-    },
+    statusGroup("Info", "Informational messages, tips, neutral notifications.", [
+        info50, info100, info200, info300, info400, info500, info600, info700, info800, info900, info950,
+    ]),
+    statusGroup("Success", "Positive outcomes, confirmations, completed states.", [
+        success50, success100, success200, success300, success400, success500, success600, success700, success800, success900, success950,
+    ]),
+    statusGroup("Warning", "Caution states, pending actions, attention required.", [
+        warning50, warning100, warning200, warning300, warning400, warning500, warning600, warning700, warning800, warning900, warning950,
+    ]),
+    statusGroup("Danger", "Destructive actions, error states, validation failures.", [
+        danger50, danger100, danger200, danger300, danger400, danger500, danger600, danger700, danger800, danger900, danger950,
+    ]),
 ]
 
-const ICON_ALIASES = [
-    { token: "IconHighEmphasis", value: "neutral700", hex: neutral700 },
-    { token: "IconLowEmphasis", value: "neutral400", hex: neutral400 },
-    { token: "IconDisabled", value: "neutral200", hex: neutral200 },
-    { token: "IconPrimary", value: "primary500", hex: primary500 },
-    { token: "IconDanger", value: "danger500", hex: danger500 },
-    { token: "IconSuccess", value: "success500", hex: success500 },
-    { token: "IconWarning", value: "warning500", hex: warning500 },
+function row(path: string, token: string, hex: string) {
+    return { path, token, hex }
+}
+
+// Background — surfaces get the lightest tints (50/100/200) so content on
+// top stays readable; "strong" (800) is the exception, meant for solid
+// filled banners/badges with white text on top.
+const BACKGROUND_TOKENS = [
+    row("semantic.surface.neutral.muted", "neutral.100", neutral100),
+    row("semantic.surface.neutral.inverse", "neutral.0", neutral0),
+    row("semantic.surface.neutral.strong", "neutral.900", neutral900),
+    row("semantic.surface.neutral.medium", "neutral.150", neutral150),
+    row("semantic.surface.neutral.default", "neutral.50", neutral50),
+    row("semantic.surface.neutral.weak", "neutral.25", neutral25),
+
+    row("semantic.surface.primary.strong", "primary.800", primary800),
+    row("semantic.surface.primary.medium", "primary.200", primary200),
+    row("semantic.surface.primary.default", "primary.100", primary100),
+    row("semantic.surface.primary.weak", "primary.50", primary50),
+
+    row("semantic.surface.secondary.strong", "secondary.800", secondary800),
+    row("semantic.surface.secondary.medium", "secondary.200", secondary200),
+    row("semantic.surface.secondary.default", "secondary.100", secondary100),
+    row("semantic.surface.secondary.weak", "secondary.50", secondary50),
+
+    row("semantic.surface.success.strong", "success.800", success800),
+    row("semantic.surface.success.medium", "success.200", success200),
+    row("semantic.surface.success.default", "success.100", success100),
+    row("semantic.surface.success.weak", "success.50", success50),
+
+    row("semantic.surface.info.strong", "info.800", info800),
+    row("semantic.surface.info.medium", "info.200", info200),
+    row("semantic.surface.info.default", "info.100", info100),
+    row("semantic.surface.info.weak", "info.50", info50),
+
+    row("semantic.surface.warning.strong", "warning.800", warning800),
+    row("semantic.surface.warning.medium", "warning.200", warning200),
+    row("semantic.surface.warning.default", "warning.100", warning100),
+    row("semantic.surface.warning.weak", "warning.50", warning50),
+
+    row("semantic.surface.danger.strong", "danger.800", danger800),
+    row("semantic.surface.danger.medium", "danger.200", danger200),
+    row("semantic.surface.danger.default", "danger.100", danger100),
+    row("semantic.surface.danger.weak", "danger.50", danger50),
 ]
 
-const TEXT_ALIASES = [
-    { label: "High emphasis text", token: "TextHighEmphasis", value: "neutral900", hex: neutral900 },
-    { label: "Low emphasis text", token: "TextLowEmphasis", value: "neutral500", hex: neutral500 },
-    { label: "Disabled text", token: "TextDisabled", value: "neutral300", hex: neutral300 },
-    { label: "Primary text", token: "TextPrimary", value: "primary500", hex: primary500 },
-    { label: "Danger text", token: "TextDanger", value: "danger500", hex: danger500 },
-    { label: "Success text", token: "TextSuccess", value: "success700", hex: success700 },
-    { label: "Warning text", token: "TextWarning", value: "warning700", hex: warning700 },
-    { label: "Invert text", token: "TextInvert", value: "neutral0", hex: neutral0 },
+// Typography — chromatic colors use 700 across the board; that's the
+// shade Atlas already uses for TextDanger/TextSuccess/TextWarning
+// elsewhere because it's the first stop on each ramp that clears 4.5:1
+// against a white surface.
+const TYPOGRAPHY_TOKENS = [
+    row("semantic.typography.neutral.muted", "neutral.300", neutral300),
+    row("semantic.typography.neutral.inverse", "neutral.0", neutral0),
+    row("semantic.typography.neutral.strong", "neutral.900", neutral900),
+    row("semantic.typography.neutral.medium", "neutral.600", neutral600),
+    row("semantic.typography.neutral.weak", "neutral.400", neutral400),
+
+    row("semantic.typography.primary", "primary.700", primary700),
+    row("semantic.typography.secondary", "secondary.700", secondary700),
+    row("semantic.typography.info", "info.700", info700),
+    row("semantic.typography.success", "success.700", success700),
+    row("semantic.typography.warning", "warning.700", warning700),
+    row("semantic.typography.danger", "danger.700", danger700),
 ]
 
-function Swatch({ name, hex }: { name: string; hex: string }) {
+// Border — one shade deeper than the matching surface tier (surface uses
+// 50/100/200, border uses 100/200/300) so a bordered card doesn't
+// disappear against its own background.
+const BORDER_TOKENS = [
+    row("semantic.border.neutral.muted", "neutral.150", neutral150),
+    row("semantic.border.neutral.inverse", "neutral.0", neutral0),
+    row("semantic.border.neutral.strong", "neutral.900", neutral900),
+    row("semantic.border.neutral.medium", "neutral.200", neutral200),
+    row("semantic.border.neutral.default", "neutral.100", neutral100),
+    row("semantic.border.neutral.weak", "neutral.50", neutral50),
+
+    row("semantic.border.primary.strong", "primary.800", primary800),
+    row("semantic.border.primary.medium", "primary.300", primary300),
+    row("semantic.border.primary.default", "primary.200", primary200),
+    row("semantic.border.primary.weak", "primary.100", primary100),
+
+    row("semantic.border.secondary.strong", "secondary.800", secondary800),
+    row("semantic.border.secondary.medium", "secondary.300", secondary300),
+    row("semantic.border.secondary.default", "secondary.200", secondary200),
+    row("semantic.border.secondary.weak", "secondary.100", secondary100),
+
+    row("semantic.border.success.strong", "success.800", success800),
+    row("semantic.border.success.medium", "success.300", success300),
+    row("semantic.border.success.default", "success.200", success200),
+    row("semantic.border.success.weak", "success.100", success100),
+
+    row("semantic.border.info.strong", "info.800", info800),
+    row("semantic.border.info.medium", "info.300", info300),
+    row("semantic.border.info.default", "info.200", info200),
+    row("semantic.border.info.weak", "info.100", info100),
+
+    row("semantic.border.warning.strong", "warning.800", warning800),
+    row("semantic.border.warning.medium", "warning.300", warning300),
+    row("semantic.border.warning.default", "warning.200", warning200),
+    row("semantic.border.warning.weak", "warning.100", warning100),
+
+    row("semantic.border.danger.strong", "danger.800", danger800),
+    row("semantic.border.danger.medium", "danger.300", danger300),
+    row("semantic.border.danger.default", "danger.200", danger200),
+    row("semantic.border.danger.weak", "danger.100", danger100),
+]
+
+// Icon — chromatic colors use 500 (the ramp's "default" stop), matching
+// the IconPrimary/IconDanger/IconSuccess/IconWarning aliases already used
+// elsewhere on this site.
+const ICON_TOKENS = [
+    row("semantic.icon.neutral.muted", "neutral.300", neutral300),
+    row("semantic.icon.neutral.inverse", "neutral.0", neutral0),
+    row("semantic.icon.neutral.strong", "neutral.900", neutral900),
+    row("semantic.icon.neutral.medium", "neutral.600", neutral600),
+    row("semantic.icon.neutral.weak", "neutral.400", neutral400),
+
+    row("semantic.icon.primary", "primary.500", primary500),
+    row("semantic.icon.secondary", "secondary.500", secondary500),
+    row("semantic.icon.info", "info.500", info500),
+    row("semantic.icon.success", "success.500", success500),
+    row("semantic.icon.warning", "warning.500", warning500),
+    row("semantic.icon.danger", "danger.500", danger500),
+]
+
+const TOKEN_SECTIONS = [
+    { id: "background", title: "Background", rows: BACKGROUND_TOKENS },
+    { id: "typography", title: "Typography", rows: TYPOGRAPHY_TOKENS },
+    { id: "border", title: "Border", rows: BORDER_TOKENS },
+    { id: "icon", title: "Icon", rows: ICON_TOKENS },
+]
+
+function TokenRow({ path, token, hex }: { path: string; token: string; hex: string }) {
+    return (
+        <div className="flex items-center gap-3 border-t border-[var(--neutral100)] px-4 py-2.5 first:border-t-0">
+            <span
+                className="h-5 w-5 shrink-0 rounded border border-[var(--neutral100)]"
+                style={{ background: hex }}
+            />
+            <span className="min-w-0 flex-1 truncate font-mono text-xs text-[var(--neutral800)]">
+                {path}
+            </span>
+            <span className="w-24 shrink-0 text-right text-xs text-[var(--neutral400)]">{token}</span>
+            <span className="hidden w-20 shrink-0 text-right text-xs text-[var(--neutral400)] sm:inline-block">
+                {hex.toUpperCase()}
+            </span>
+        </div>
+    )
+}
+
+function Swatch({ name, hex, alias }: { name: string; hex: string; alias?: string }) {
     return (
         <div>
             <div
@@ -166,8 +313,12 @@ function Swatch({ name, hex }: { name: string; hex: string }) {
                 style={{ background: hex }}
             />
             <p className="mt-2 text-xs font-semibold text-[var(--neutral900)]">{name}</p>
-            <p className="text-xs text-[var(--neutral500)]">HEX {hex.toUpperCase()}</p>
-            <p className="text-xs text-[var(--neutral500)]">RGB {hexToRgb(hex)}</p>
+            <p className="text-xs text-[var(--neutral500)]">{hex.toUpperCase()}</p>
+            {alias ? (
+                <p className="text-xs text-[var(--neutral400)]">{alias}</p>
+            ) : (
+                <p className="text-xs text-[var(--neutral500)]">RGB {hexToRgb(hex)}</p>
+            )}
         </div>
     )
 }
@@ -198,130 +349,47 @@ export default function FoundationsColorPage() {
             <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_200px]">
                 <div className="min-w-0">
                     <p className="text-sm text-[var(--neutral600)]">
-                        Atlas ships {NEUTRAL.length + PRIMARY.length + SECONDARY.length} core color
-                        tokens across neutral, brand and status palettes, plus semantic aliases for
-                        icons and text so state is recognizable at a glance.
+                        Atlas ships {NEUTRAL.length + (BRAND_GROUPS.length + STATUS_GROUPS.length) * 11}{" "}
+                        core color tokens across neutral, brand and status palettes, plus semantic
+                        aliases for icons and text so state is recognizable at a glance.
                     </p>
 
                     <div id="color-palettes" className="mt-12 scroll-mt-24">
                         <h2 className="text-lg font-semibold text-[var(--neutral900)]">Neutral</h2>
-                        <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
+                        <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-6">
                             {NEUTRAL.map((s) => (
                                 <Swatch key={s.name} {...s} />
                             ))}
                         </div>
                     </div>
 
-                    <div className="mt-12">
-                        <h2 className="text-lg font-semibold text-[var(--neutral900)]">Primary</h2>
-                        <p className="mt-1 text-sm text-[var(--neutral500)]">
-                            The brand color — used for primary buttons, active states and links.
-                        </p>
-                        <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-6">
-                            {PRIMARY.map((s) => (
-                                <Swatch key={s.name} {...s} />
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="mt-12">
-                        <h2 className="text-lg font-semibold text-[var(--neutral900)]">Secondary</h2>
-                        <p className="mt-1 text-sm text-[var(--neutral500)]">
-                            Complements primary for accents, charts and secondary emphasis.
-                        </p>
-                        <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-6">
-                            {SECONDARY.map((s) => (
-                                <Swatch key={s.name} {...s} />
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="mt-12 grid grid-cols-1 gap-10 sm:grid-cols-2">
-                        {STATUS_GROUPS.map((group) => (
-                            <div key={group.label}>
-                                <h2 className="text-lg font-semibold text-[var(--neutral900)]">
-                                    {group.label}
-                                </h2>
-                                <div className="mt-4 grid grid-cols-3 gap-4">
-                                    {group.swatches.map((s) => (
-                                        <Swatch key={s.name} {...s} />
-                                    ))}
-                                </div>
+                    {[...BRAND_GROUPS, ...STATUS_GROUPS].map((group) => (
+                        <div key={group.name} className="mt-12">
+                            <h2 className="text-lg font-semibold text-[var(--neutral900)]">
+                                {group.name}
+                            </h2>
+                            <p className="mt-1 text-sm text-[var(--neutral500)]">{group.description}</p>
+                            <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-6">
+                                {group.swatches.map((s) => (
+                                    <Swatch key={s.name} {...s} />
+                                ))}
                             </div>
-                        ))}
-                    </div>
-
-                    {/* Icon color alias */}
-                    <div id="icon-color-alias" className="mt-16 scroll-mt-24">
-                        <h2 className="text-lg font-semibold text-[var(--neutral900)]">
-                            Icon color alias
-                        </h2>
-                        <div className="mt-4 overflow-hidden rounded-xl border border-[var(--neutral100)]">
-                            <table className="w-full text-left text-sm">
-                                <thead className="bg-[var(--neutral900)] text-[var(--neutral0)]">
-                                    <tr>
-                                        <th className="px-4 py-2.5 font-medium">Visual</th>
-                                        <th className="px-4 py-2.5 font-medium">Token</th>
-                                        <th className="px-4 py-2.5 font-medium">Value</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {ICON_ALIASES.map((row) => (
-                                        <tr key={row.token} className="border-t border-[var(--neutral100)]">
-                                            <td className="px-4 py-3">
-                                                <Layers size={18} style={{ color: row.hex }} />
-                                            </td>
-                                            <td className="px-4 py-3 text-[var(--neutral700)]">{row.token}</td>
-                                            <td className="px-4 py-3 text-[var(--neutral500)]">{row.value}</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
                         </div>
-                    </div>
+                    ))}
 
-                    {/* Text color alias */}
-                    <div id="text-color-alias" className="mt-16 scroll-mt-24">
-                        <h2 className="text-lg font-semibold text-[var(--neutral900)]">
-                            Text color alias
-                        </h2>
-                        <div className="mt-4 overflow-hidden rounded-xl border border-[var(--neutral100)]">
-                            <table className="w-full text-left text-sm">
-                                <thead className="bg-[var(--neutral900)] text-[var(--neutral0)]">
-                                    <tr>
-                                        <th className="px-4 py-2.5 font-medium">Sample</th>
-                                        <th className="px-4 py-2.5 font-medium">Token</th>
-                                        <th className="px-4 py-2.5 font-medium">Value</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {TEXT_ALIASES.map((row) => (
-                                        <tr key={row.token} className="border-t border-[var(--neutral100)]">
-                                            <td className="px-4 py-3">
-                                                {row.token === "TextInvert" ? (
-                                                    <span
-                                                        className="inline-block rounded px-2 py-0.5 text-xs font-medium"
-                                                        style={{ background: neutral900, color: row.hex }}
-                                                    >
-                                                        {row.label}
-                                                    </span>
-                                                ) : (
-                                                    <span
-                                                        className="text-xs font-medium"
-                                                        style={{ color: row.hex }}
-                                                    >
-                                                        {row.label}
-                                                    </span>
-                                                )}
-                                            </td>
-                                            <td className="px-4 py-3 text-[var(--neutral700)]">{row.token}</td>
-                                            <td className="px-4 py-3 text-[var(--neutral500)]">{row.value}</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+                    {/* Semantic color tokens */}
+                    {TOKEN_SECTIONS.map((section) => (
+                        <div key={section.id} id={section.id} className="mt-16 scroll-mt-24">
+                            <h2 className="text-lg font-semibold text-[var(--neutral900)]">
+                                {section.title}
+                            </h2>
+                            <div className="mt-4 overflow-hidden rounded-xl border border-[var(--neutral100)]">
+                                {section.rows.map((r) => (
+                                    <TokenRow key={r.path} {...r} />
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                    ))}
                 </div>
 
                 {/* On this page */}
@@ -334,12 +402,15 @@ export default function FoundationsColorPage() {
                             <a href="#color-palettes" className="text-[var(--neutral600)] hover:text-[var(--primary600)]">
                                 Color palettes
                             </a>
-                            <a href="#icon-color-alias" className="text-[var(--neutral600)] hover:text-[var(--primary600)]">
-                                Icon color alias
-                            </a>
-                            <a href="#text-color-alias" className="text-[var(--neutral600)] hover:text-[var(--primary600)]">
-                                Text color alias
-                            </a>
+                            {TOKEN_SECTIONS.map((section) => (
+                                <a
+                                    key={section.id}
+                                    href={`#${section.id}`}
+                                    className="text-[var(--neutral600)] hover:text-[var(--primary600)]"
+                                >
+                                    {section.title}
+                                </a>
+                            ))}
                         </nav>
                     </div>
                 </aside>

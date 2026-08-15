@@ -32,7 +32,7 @@ function Segmented<T extends string>({
                         onClick={() => onChange(option)}
                         className={`rounded-[6px] px-3 py-1.5 text-sm capitalize transition-colors ${
                             value === option
-                                ? "bg-[var(--neutral900)] text-white"
+                                ? "bg-[var(--neutral900)] text-[var(--background)]"
                                 : "text-[var(--neutral600)] hover:text-[var(--neutral900)]"
                         }`}
                     >

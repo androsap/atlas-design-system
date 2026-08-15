@@ -3,6 +3,7 @@ import { Inter, Manrope } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ScrollSnapController } from "@/components/scroll-snap-controller";
+import { BackToTopButton } from "@/components/back-to-top-button";
 import "./globals.css";
 
 const inter = Inter({
@@ -44,6 +45,7 @@ export default function RootLayout({
         <Header />
         <main className="flex flex-1 flex-col">{children}</main>
         <Footer />
+        <BackToTopButton />
       </body>
     </html>
   );

@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils"
 
 const FOUNDATIONS = [
     { name: "Overview", href: "/foundations", status: "ready" as const },
-    { name: "Color", href: "#", status: "soon" as const },
-    { name: "Typography", href: "#", status: "soon" as const },
+    { name: "Color", href: "/foundations/color", status: "ready" as const },
+    { name: "Typography", href: "/foundations/typography", status: "ready" as const },
     { name: "Iconography", href: "#", status: "soon" as const },
     { name: "Grid & spacing", href: "#", status: "soon" as const },
     { name: "Accessibility", href: "#", status: "soon" as const },

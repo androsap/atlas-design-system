@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Palette, Type, Shapes, LayoutGrid, Accessibility, Braces } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 const FOUNDATIONS = [
     {
@@ -15,7 +16,7 @@ const FOUNDATIONS = [
         title: "Typography",
         description:
             "A Manrope + Inter type scale from display headings down to captions and labels.",
-        href: null,
+        href: "/foundations/typography",
     },
     {
         icon: Shapes,
@@ -73,28 +74,36 @@ export default function FoundationsPage() {
 
             {/* Foundations grid */}
             <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                {FOUNDATIONS.map(({ icon: Icon, title, description, href }) => (
-                    <div
-                        key={title}
-                        className="flex h-full min-h-[400px] flex-col rounded-xl border border-[var(--neutral100)] bg-[var(--surface-raised)] p-8"
-                    >
-                        <div className="flex h-48 items-center justify-center rounded-lg border border-[var(--surface-accent-subtle-border)] bg-[var(--surface-accent-subtle)]">
-                            <Icon size={48} className="text-[var(--icon-accent-subtle)]" strokeWidth={1.5} />
-                        </div>
-                        <p className="mt-6 text-sm font-semibold text-[var(--neutral900)]">{title}</p>
-                        <p className="mt-2 text-sm text-[var(--neutral500)]">{description}</p>
-                        {href && (
-                            <div className="mt-auto pt-8">
-                                <Link
-                                    href={href}
-                                    className="inline-block text-sm font-medium text-[var(--text-link)] hover:underline"
-                                >
-                                    see more
-                                </Link>
+                {FOUNDATIONS.map(({ icon: Icon, title, description, href }) => {
+                    const cardClassName = cn(
+                        "flex h-full min-h-[400px] flex-col rounded-xl border border-[var(--neutral100)] bg-[var(--surface-raised)] p-8 transition-colors",
+                        href && "hover:border-[var(--primary300)]"
+                    )
+                    const content = (
+                        <>
+                            <div className="flex h-48 items-center justify-center rounded-lg border border-[var(--surface-accent-subtle-border)] bg-[var(--surface-accent-subtle)]">
+                                <Icon size={48} className="text-[var(--icon-accent-subtle)]" strokeWidth={1.5} />
                             </div>
-                        )}
-                    </div>
-                ))}
+                            <p className="mt-6 text-sm font-semibold text-[var(--neutral900)]">{title}</p>
+                            <p className="mt-2 text-sm text-[var(--neutral500)]">{description}</p>
+                            {href && (
+                                <span className="mt-auto inline-block w-fit pt-8 text-sm font-medium text-[var(--text-link)]">
+                                    see more
+                                </span>
+                            )}
+                        </>
+                    )
+
+                    return href ? (
+                        <Link key={title} href={href} className={cardClassName}>
+                            {content}
+                        </Link>
+                    ) : (
+                        <div key={title} className={cardClassName}>
+                            {content}
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )
