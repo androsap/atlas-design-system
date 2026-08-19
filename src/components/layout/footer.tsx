@@ -5,32 +5,25 @@ const FOOTER_COLUMNS = [
     {
         title: "Design system",
         links: [
-            { label: "Foundations", href: "/#foundations" },
-            { label: "Components", href: "/components/button" },
-            { label: "Patterns", href: "/#foundations" },
+            { label: "Get started", href: "/getting-started" },
+            { label: "Foundations", href: "/foundations" },
+            { label: "Components", href: "/components" },
         ],
     },
     {
         title: "Resources",
-        links: [
-            { label: "Guidelines", href: "/#foundations" },
-            { label: "Changelog", href: "/#foundations" },
-            { label: "GitHub", href: "#" },
-        ],
+        links: [{ label: "Changelog", href: "/changelog" }],
     },
     {
         title: "Company",
-        links: [
-            { label: "About", href: "#" },
-            { label: "Contact", href: "#" },
-        ],
+        links: [{ label: "About", href: "#" }],
     },
 ]
 
 export function Footer() {
     return (
         <footer className="snap-end border-t border-[var(--neutral100)] bg-[var(--neutral0)]">
-            <div className="mx-auto max-w-7xl px-6 py-12 md:px-10">
+            <div className="mx-auto max-w-7xl px-6 py-12 md:pr-10 md:pl-[52px]">
                 <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
                     <div className="col-span-2 sm:col-span-1">
                         <div className="flex items-center gap-2">

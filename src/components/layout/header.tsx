@@ -3,15 +3,15 @@ import Image from "next/image"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 const NAV_LINKS = [
+    { label: "Get started", href: "/getting-started" },
     { label: "Foundations", href: "/foundations" },
     { label: "Components", href: "/components" },
-    { label: "News", href: "/news" },
 ]
 
 export function Header() {
     return (
         <header className="sticky top-0 z-40 border-b border-[var(--neutral100)] bg-[var(--neutral0)]/80 backdrop-blur">
-            <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 md:px-10">
+            <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 md:pr-10 md:pl-[52px]">
                 <Link href="/" className="flex items-center gap-2">
                     <span className="relative flex h-8 w-8 items-center justify-center">
                         <Image

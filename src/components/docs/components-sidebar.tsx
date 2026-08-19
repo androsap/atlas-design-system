@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 
 const COMPONENTS = [
     { name: "Overview", href: "/components", status: "ready" as const },
-    { name: "Butt   on", href: "/components/button", status: "ready" as const },
+    { name: "Button", href: "/components/button", status: "ready" as const },
     { name: "Input, Text Area", href: "#", status: "soon" as const },
     { name: "Dropdown", href: "#", status: "soon" as const },
     { name: "Checkbox", href: "#", status: "soon" as const },

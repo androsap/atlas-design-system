@@ -80,6 +80,7 @@ import {
     danger900,
     danger950,
 } from "@/tokens/generated"
+import { OnThisPageNav } from "@/components/docs/on-this-page-nav"
 
 function hexToRgb(hex: string) {
     const r = parseInt(hex.slice(1, 3), 16)
@@ -398,20 +399,12 @@ export default function FoundationsColorPage() {
                         <p className="text-xs font-semibold uppercase tracking-wide text-[var(--neutral400)]">
                             On this page
                         </p>
-                        <nav className="mt-3 flex flex-col gap-2 text-sm">
-                            <a href="#color-palettes" className="text-[var(--neutral600)] hover:text-[var(--primary600)]">
-                                Color palettes
-                            </a>
-                            {TOKEN_SECTIONS.map((section) => (
-                                <a
-                                    key={section.id}
-                                    href={`#${section.id}`}
-                                    className="text-[var(--neutral600)] hover:text-[var(--primary600)]"
-                                >
-                                    {section.title}
-                                </a>
-                            ))}
-                        </nav>
+                        <OnThisPageNav
+                            items={[
+                                { id: "color-palettes", label: "Color palettes" },
+                                ...TOKEN_SECTIONS.map((section) => ({ id: section.id, label: section.title })),
+                            ]}
+                        />
                     </div>
                 </aside>
             </div>

@@ -35,7 +35,7 @@ export default function Home() {
 
             {/* Hero */}
             <section id="hero" className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center">
-                <div className="mx-auto grid w-full max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:items-center md:px-10 md:py-28">
+                <div className="mx-auto grid w-full max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:items-center md:pr-10 md:pl-[52px] md:py-28">
                     <div className="relative flex flex-col items-start gap-6">
                         <HeroCursors />
                         <span className="rounded-full border border-[var(--neutral150)] px-3 py-1 text-xs font-medium uppercase tracking-wide text-[var(--neutral600)]">
@@ -49,7 +49,7 @@ export default function Home() {
                         </h1>
                         <div className="flex flex-wrap items-center gap-3">
                             <Link
-                                href="/components/button"
+                                href="/getting-started"
                                 className="rounded-[var(--radius-md)] bg-[var(--color-primary)] px-5 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
                             >
                                 Get started
@@ -78,7 +78,7 @@ export default function Home() {
 
             {/* About */}
             <section id="about" className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center border-t border-[var(--neutral100)] bg-[var(--neutral25)]">
-                <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 md:grid-cols-2 md:px-10">
+                <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 md:grid-cols-2 md:pr-10 md:pl-[52px]">
                     <Image
                         src="/illustration_1.png"
                         alt="Atlas design system illustration"
@@ -105,7 +105,7 @@ export default function Home() {
 
             {/* Components showcase */}
             <section id="components" className="flex min-h-[600px] max-h-screen shrink-0 scroll-mt-16 snap-start flex items-start pt-16 overflow-hidden border-t border-[var(--neutral100)]">
-                <div className="mx-auto grid w-full max-w-7xl items-start px-6 pt-28 md:grid-cols-2 md:px-10 md:pt-36">
+                <div className="mx-auto grid w-full max-w-7xl items-start px-6 pt-28 md:grid-cols-2 md:pr-10 md:pl-[52px] md:pt-36">
                     <div className="relative bottom-30 z-10">
                         <h1
                             className="text-[var(--neutral900)]"
@@ -152,7 +152,7 @@ export default function Home() {
 
             {/* Principles */}
             <section id="principles" className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center border-t border-[var(--neutral100)]">
-                <div className="mx-auto max-w-7xl px-6 md:px-10">
+                <div className="mx-auto max-w-7xl px-6 md:pr-10 md:pl-[52px]">
                     <div className="mx-auto max-w-xl text-center">
                         <h2 className="text-[var(--neutral900)]" style={{ font: "var(--displayLg)" }}>
                             Design Principles
@@ -191,7 +191,7 @@ export default function Home() {
                 }}
             >
                 <AnimatedGlobeBackground />
-                <div className="relative z-10 mx-auto w-full max-w-7xl items-center gap-12 px-6 md:grid-cols-2 md:px-10">
+                <div className="relative z-10 mx-auto w-full max-w-7xl items-center gap-12 px-6 md:grid-cols-2 md:pr-10 md:pl-[52px]">
                     <div>
                         <h2 className="text-white" style={{ font: "var(--displayLg)" }}>
                             One language. <br />One foundation. <br />Every experience.

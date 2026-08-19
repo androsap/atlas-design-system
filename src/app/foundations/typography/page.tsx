@@ -42,61 +42,76 @@ function typeRow(
     return { label, token, cssVar, weight, size, lineHeight, tracking, sample, uppercase }
 }
 
-const TYPE_GROUPS: { title: string; rows: TypeRow[] }[] = [
+const TYPE_GROUPS: { id: string; title: string; rows: TypeRow[] }[] = [
     {
+        id: "display",
         title: "Display",
         rows: [
-            typeRow("Display Xtra Large", "typography.display.xl", "displayXl", "Bold", 112, 120, "-1.2", "Display Extra Large."),
-            typeRow("Display Large", "typography.display.lg", "displayLg", "Bold", 56, 64, "-0.8", "Display Large."),
-            typeRow("Display Medium", "typography.display.md", "displayMd", "Bold", 48, 56, "-0.6", "Display Medium."),
+            typeRow("Display Xtra Large", "typography.display.xl", "displayXl", "Bold", 112, 120, "-1.2", "Lorem ipsum"),
+            typeRow("Display Large", "typography.display.lg", "displayLg", "Bold", 56, 64, "-0.8", "Lorem ipsum dolor sit amet"),
+            typeRow("Display Medium", "typography.display.md", "displayMd", "Bold", 48, 56, "-0.6", "Lorem ipsum dolor sit amet"),
         ],
     },
     {
+        id: "heading",
         title: "Heading",
         rows: [
-            typeRow("Heading Large", "typography.heading.lg", "headingLg", "Semi Bold", 40, 56, "-0.22", "Heading One (h1)."),
-            typeRow("Heading Medium", "typography.heading.md", "headingMd", "Semi Bold", 32, 42, "-0.21", "Heading Two (h2)."),
-            typeRow("Heading Small", "typography.heading.sm", "headingSm", "Semi Bold", 24, 34, "-0.19", "Heading Three (h3)."),
+            typeRow("Heading Large", "typography.heading.lg", "headingLg", "Semi Bold", 40, 56, "-0.22", "Lorem ipsum dolor sit amet consectetur"),
+            typeRow("Heading Medium", "typography.heading.md", "headingMd", "Semi Bold", 32, 42, "-0.21", "Lorem ipsum dolor sit amet consectetur"),
+            typeRow("Heading Small", "typography.heading.sm", "headingSm", "Semi Bold", 24, 34, "-0.19", "Lorem ipsum dolor sit amet consectetur"),
         ],
     },
     {
+        id: "title",
         title: "Title",
         rows: [
-            typeRow("Title Medium", "typography.title.md", "titleMd", "Semi Bold", 20, 28, "-0.17", "Title medium for prominent titles"),
-            typeRow("Title Small", "typography.title.sm", "titleSm", "Semi Bold", 18, 25, "-0.14", "Used for secondary titles or headings."),
+            typeRow("Title Medium", "typography.title.md", "titleMd", "Semi Bold", 20, 28, "-0.17", "Lorem ipsum dolor sit amet consectetur adipiscing"),
+            typeRow("Title Small", "typography.title.sm", "titleSm", "Semi Bold", 18, 25, "-0.14", "Lorem ipsum dolor sit amet consectetur adipiscing"),
         ],
     },
     {
+        id: "subtitle",
         title: "Subtitle",
         rows: [
-            typeRow("Subtitle Medium", "typography.subtitle.md", "subtitleMd", "Semi Bold", 16, 22, "-0.11", "Subtitle medium used for subtitles."),
-            typeRow("Subtitle Small", "typography.subtitle.sm", "subtitleSm", "Semi Bold", 14, 20, "-0.06", "Subtitle small used for smaller subtitles."),
+            typeRow("Subtitle Medium", "typography.subtitle.md", "subtitleMd", "Semi Bold", 16, 22, "-0.11", "Lorem ipsum dolor sit amet consectetur adipiscing elit"),
+            typeRow("Subtitle Small", "typography.subtitle.sm", "subtitleSm", "Semi Bold", 14, 20, "-0.06", "Lorem ipsum dolor sit amet consectetur adipiscing elit"),
         ],
     },
     {
+        id: "body",
         title: "Body",
         rows: [
-            typeRow("Body Large", "typography.body.lg", "bodyLg", "Regular", 20, 28, "0.17", "Body large text for introductory paragraphs and highlighted content blocks."),
-            typeRow("Body Medium", "typography.body.md", "bodyMd", "Regular", 16, 22, "0.11", "Body medium is the default text size for paragraphs and general content."),
-            typeRow("Body Small", "typography.body.sm", "bodySm", "Regular", 14, 20, "0.06", "Body small for secondary information, table cells, and compact layouts."),
+            typeRow("Body Large", "typography.body.lg", "bodyLg", "Regular", 20, 28, "0.17", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."),
+            typeRow("Body Medium", "typography.body.md", "bodyMd", "Regular", 16, 22, "0.11", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."),
+            typeRow("Body Small", "typography.body.sm", "bodySm", "Regular", 14, 20, "0.06", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."),
         ],
     },
     {
+        id: "label",
         title: "Label",
         rows: [
-            typeRow("Label Medium", "typography.label.md", "labelMd", "Medium", 14, 20, "0", "Label Medium."),
-            typeRow("Label Small", "typography.label.sm", "labelSm", "Medium", 12, 17, "0.1", "Label Small."),
+            typeRow("Label Medium", "typography.label.md", "labelMd", "Medium", 14, 20, "0", "Lorem ipsum dolor sit amet"),
+            typeRow("Label Small", "typography.label.sm", "labelSm", "Medium", 12, 17, "0.1", "Lorem ipsum dolor sit amet"),
         ],
     },
     {
+        id: "caption-overline",
         title: "Caption & Overline",
         rows: [
-            typeRow("Caption Medium", "typography.caption.md", "captionMd", "Regular", 12, 16, "0.05", "Caption text for supplementary information and metadata."),
-            typeRow("Caption Small", "typography.caption.sm", "captionSm", "Regular", 10, 14, null, "Caption text for supplementary information and metadata, but smaller."),
-            typeRow("Overline", "typography.overline", "overlineBase", "Medium", 11, 15, null, "Overline label text", true),
+            typeRow("Caption Medium", "typography.caption.md", "captionMd", "Regular", 12, 16, "0.05", "Lorem ipsum dolor sit amet consectetur."),
+            typeRow("Caption Small", "typography.caption.sm", "captionSm", "Regular", 10, 14, null, "Lorem ipsum dolor sit amet consectetur adipiscing."),
+            typeRow("Overline", "typography.overline", "overlineBase", "Medium", 11, 15, null, "Lorem ipsum dolor sit amet", true),
         ],
     },
 ]
+
+const TYPEFACES_SECTIONS = [
+    { id: "inter", label: "Inter" },
+    { id: "manrope", label: "Manrope" },
+    { id: "scale", label: "Scale" },
+]
+
+const SCALE_SECTIONS = TYPE_GROUPS.map((group) => ({ id: group.id, label: group.title }))
 
 // Real, documented Inter OpenType features (from the Inter typeface itself —
 // see the guide link below), not something specific to our next/font setup.
@@ -202,7 +217,7 @@ const typefacesTab = (
             sacrificing consistency across the design system.
         </p>
 
-        <div>
+        <div id="inter" className="scroll-mt-24">
             <h3 className="text-base font-semibold text-[var(--neutral900)]">Inter</h3>
             <p className="mt-1 max-w-2xl text-sm text-[var(--neutral500)]">
                 Our workhorse typeface for UI, headings and body copy — designed for screens and
@@ -226,7 +241,7 @@ const typefacesTab = (
             <FeatureTable rows={INTER_FEATURES} />
         </div>
 
-        <div>
+        <div id="manrope" className="scroll-mt-24">
             <h3 className="text-base font-semibold text-[var(--neutral900)]">Manrope</h3>
             <p className="mt-1 max-w-2xl text-sm text-[var(--neutral500)]">
                 Our display typeface — used only for the Display styles, where its distinct
@@ -237,7 +252,7 @@ const typefacesTab = (
             </div>
         </div>
 
-        <div>
+        <div id="scale" className="scroll-mt-24">
             <h3 className="text-base font-semibold text-[var(--neutral900)]">Scale</h3>
             <p className="mt-1 max-w-2xl text-sm text-[var(--neutral500)]">
                 Atlas&apos;s type scale runs from {fontSize0} to {fontSize12} — sizes are tuned by
@@ -264,7 +279,7 @@ const typefacesTab = (
 const scaleTab = (
     <div>
         {TYPE_GROUPS.map((group) => (
-            <div key={group.title} className="mt-14 first:mt-0">
+            <div key={group.id} id={group.id} className="mt-14 scroll-mt-24 first:mt-0">
                 <h2 className="text-lg font-semibold text-[var(--neutral900)]">{group.title}</h2>
                 <div className="mt-2">
                     {group.rows.map((row) => (
@@ -291,7 +306,12 @@ export default function FoundationsTypographyPage() {
                 </p>
             </div>
 
-            <TypographyTabs typefaces={typefacesTab} scale={scaleTab} />
+            <TypographyTabs
+                typefaces={typefacesTab}
+                scale={scaleTab}
+                typefacesSections={TYPEFACES_SECTIONS}
+                scaleSections={SCALE_SECTIONS}
+            />
         </div>
     )
 }
