@@ -1,12 +1,15 @@
 "use client"
 
 import { useState } from "react"
+import { RefreshCw } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { CopyButton } from "@/components/docs/copy-button"
 
-const VARIANTS = ["primary", "secondary", "ghost"] as const
+const COLORS = ["brand", "neutral", "danger", "warning", "success"] as const
+const VARIANTS = ["primary", "secondary", "tertiary"] as const
 const SIZES = ["sm", "md", "lg"] as const
 
+type Color = (typeof COLORS)[number]
 type Variant = (typeof VARIANTS)[number]
 type Size = (typeof SIZES)[number]
 
@@ -24,13 +27,13 @@ function Segmented<T extends string>({
     return (
         <div>
             <p className="mb-2 text-xs font-medium text-[var(--neutral500)]">{label}</p>
-            <div className="inline-flex rounded-[var(--radius-md)] border border-[var(--color-border)] p-1">
+            <div className="inline-flex flex-wrap rounded-[var(--radius-md)] border border-[var(--neutral100)] p-1">
                 {options.map((option) => (
                     <button
                         key={option}
                         type="button"
                         onClick={() => onChange(option)}
-                        className={`rounded-[6px] px-3 py-1.5 text-sm capitalize transition-colors ${
+                        className={`cursor-pointer rounded-[6px] px-3 py-1.5 text-sm capitalize transition-colors ${
                             value === option
                                 ? "bg-[var(--neutral900)] text-[var(--background)]"
                                 : "text-[var(--neutral600)] hover:text-[var(--neutral900)]"
@@ -45,24 +48,42 @@ function Segmented<T extends string>({
 }
 
 export function ButtonPlayground() {
+    const [color, setColor] = useState<Color>("brand")
     const [variant, setVariant] = useState<Variant>("primary")
     const [size, setSize] = useState<Size>("md")
+    const [icon, setIcon] = useState(false)
     const [disabled, setDisabled] = useState(false)
     const [label, setLabel] = useState("Click me")
 
-    const code = `<Button variant="${variant}" size="${size}"${disabled ? " disabled" : ""}>\n  ${label}\n</Button>`
+    const props = [
+        color !== "brand" && `color="${color}"`,
+        variant !== "primary" && `variant="${variant}"`,
+        size !== "md" && `size="${size}"`,
+        icon && "leadingIcon={RefreshCw}",
+        disabled && "disabled",
+    ]
+        .filter(Boolean)
+        .join(" ")
+    const code = `<Button${props ? " " + props : ""}>\n  ${label}\n</Button>`
 
     return (
         <div className="flex flex-col gap-6">
             <div className="rounded-xl border border-[var(--neutral100)] bg-[var(--neutral25)] p-10">
                 <div className="flex min-h-24 items-center justify-center">
-                    <Button variant={variant} size={size} disabled={disabled}>
+                    <Button
+                        color={color}
+                        variant={variant}
+                        size={size}
+                        disabled={disabled}
+                        leadingIcon={icon ? RefreshCw : undefined}
+                    >
                         {label}
                     </Button>
                 </div>
             </div>
 
             <div className="flex flex-wrap items-end gap-6 rounded-xl border border-[var(--neutral100)] p-4">
+                <Segmented label="Color" options={COLORS} value={color} onChange={setColor} />
                 <Segmented label="Variant" options={VARIANTS} value={variant} onChange={setVariant} />
                 <Segmented label="Size" options={SIZES} value={size} onChange={setSize} />
                 <div>
@@ -70,9 +91,13 @@ export function ButtonPlayground() {
                     <input
                         value={label}
                         onChange={(e) => setLabel(e.target.value)}
-                        className="rounded-[var(--radius-md)] border border-[var(--color-border)] px-3 py-1.5 text-sm text-[var(--neutral900)] outline-none focus:border-[var(--primary500)]"
+                        className="rounded-[var(--radius-md)] border border-[var(--neutral100)] px-3 py-1.5 text-sm text-[var(--neutral900)] outline-none focus:border-[var(--primary500)]"
                     />
                 </div>
+                <label className="flex items-center gap-2 pb-1.5 text-sm text-[var(--neutral700)]">
+                    <input type="checkbox" checked={icon} onChange={(e) => setIcon(e.target.checked)} />
+                    Icon
+                </label>
                 <label className="flex items-center gap-2 pb-1.5 text-sm text-[var(--neutral700)]">
                     <input
                         type="checkbox"

@@ -35,7 +35,7 @@ export default function Home() {
 
             {/* Hero */}
             <section id="hero" className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center">
-                <div className="mx-auto grid w-full max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:items-center md:pr-10 md:pl-[52px] md:py-28">
+                <div className="mx-auto grid w-full max-w-7xl gap-12 px-6 py-20 md:pr-10 md:pl-[52px] lg:grid-cols-2 lg:items-center lg:py-28">
                     <div className="relative flex flex-col items-start gap-6">
                         <HeroCursors />
                         <span className="rounded-full border border-[var(--neutral150)] px-3 py-1 text-xs font-medium uppercase tracking-wide text-[var(--neutral600)]">
@@ -69,7 +69,7 @@ export default function Home() {
                             alt="Asyst design system ribbon"
                             width={809}
                             height={822}
-                            className="h-auto w-full"
+                            className="mx-auto h-auto w-full max-w-sm lg:max-w-none"
                             priority
                         />
                     </div>
@@ -78,14 +78,14 @@ export default function Home() {
 
             {/* About */}
             <section id="about" className="flex min-h-screen shrink-0 scroll-mt-16 snap-start items-center border-t border-[var(--neutral100)] bg-[var(--neutral25)]">
-                <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 md:grid-cols-2 md:pr-10 md:pl-[52px]">
+                <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 md:pr-10 md:pl-[52px] lg:grid-cols-2">
                     <Image
                         src="/illustration_1.png"
                         alt="Atlas design system illustration"
                         width={2008}
                         height={2007}
                         priority
-                        className="h-auto w-full max-w-md"
+                        className="mx-auto h-auto w-full max-w-md"
                     />
                     <div>
                         <p className="text-xs font-medium uppercase tracking-wide text-[var(--neutral400)]">
@@ -104,16 +104,16 @@ export default function Home() {
             </section>
 
             {/* Components showcase */}
-            <section id="components" className="flex min-h-[600px] max-h-screen shrink-0 scroll-mt-16 snap-start flex items-start pt-16 overflow-hidden border-t border-[var(--neutral100)]">
-                <div className="mx-auto grid w-full max-w-7xl items-start px-6 pt-28 md:grid-cols-2 md:pr-10 md:pl-[52px] md:pt-36">
-                    <div className="relative bottom-30 z-10">
+            <section id="components" className="flex min-h-[600px] shrink-0 scroll-mt-16 snap-start items-start overflow-hidden border-t border-[var(--neutral100)] lg:max-h-screen">
+                <div className="mx-auto grid w-full max-w-7xl items-start gap-10 px-6 pt-10 md:pr-10 md:pl-[52px] lg:grid-cols-2 lg:pt-28">
+                    <div className="relative z-10 lg:bottom-30">
                         <h1
                             className="text-[var(--neutral900)]"
                             style={{ font: "var(--displayMd)" }}
                         >
                             Accelerating
                             <br />
-                            <span className="whitespace-nowrap">workflow development</span>
+                            <span className="lg:whitespace-nowrap">workflow development</span>
                         </h1>
                         <p
                             className="mt-4 max-w-md text-[var(--neutral600)]"
@@ -131,20 +131,20 @@ export default function Home() {
                         </Link>
                     </div>
 
-                    <div className="relative bottom-[-80px] right-[600px] [perspective:1800px] [perspective-origin:50%_20%]">
+                    <div className="relative lg:right-[600px] lg:bottom-[-80px] lg:[perspective:1800px] lg:[perspective-origin:50%_20%]">
                         <Image
                             src="/ss-01-white.jpg"
                             alt="Atlas components preview"
                             width={1560}
                             height={860}
-                            className="relative z-[200] max-w-none [transform-origin:top] [transform:rotateX(48deg)_rotateZ(-16deg)] rounded-2xl border border-[var(--neutral100)] shadow-xl [html[data-theme=dark]_&]:hidden"
+                            className="relative z-[200] h-auto w-full max-w-2xl rounded-2xl border border-[var(--neutral100)] shadow-xl [transform-origin:top] lg:w-[1560px] lg:max-w-none lg:[transform:rotateX(48deg)_rotateZ(-16deg)] [html[data-theme=dark]_&]:hidden"
                         />
                         <Image
                             src="/ss-01-black.jpg"
                             alt="Atlas components preview"
                             width={1560}
                             height={860}
-                            className="relative z-[200] hidden max-w-none [transform-origin:top] [transform:rotateX(48deg)_rotateZ(-16deg)] rounded-2xl border border-[var(--neutral100)] shadow-xl [html[data-theme=dark]_&]:block"
+                            className="relative z-[200] hidden h-auto w-full max-w-2xl rounded-2xl border border-[var(--neutral100)] shadow-xl [transform-origin:top] lg:w-[1560px] lg:max-w-none lg:[transform:rotateX(48deg)_rotateZ(-16deg)] [html[data-theme=dark]_&]:block"
                         />
                     </div>
                 </div>
@@ -191,7 +191,7 @@ export default function Home() {
                 }}
             >
                 <AnimatedGlobeBackground />
-                <div className="relative z-10 mx-auto w-full max-w-7xl items-center gap-12 px-6 md:grid-cols-2 md:pr-10 md:pl-[52px]">
+                <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 px-6 md:pr-10 md:pl-[52px] lg:grid-cols-2">
                     <div>
                         <h2 className="text-white" style={{ font: "var(--displayLg)" }}>
                             One language. <br />One foundation. <br />Every experience.
@@ -201,7 +201,7 @@ export default function Home() {
                             ecosystem speaking the same design language.
                         </p>
                     </div>
-                    <div className="mt-8">
+                    <div>
                         <Link
                             href="/components/button"
                             className="shrink-0 rounded-[var(--radius-md)] bg-white px-5 py-3 text-sm font-medium text-[var(--primary900)] transition-opacity hover:opacity-90"

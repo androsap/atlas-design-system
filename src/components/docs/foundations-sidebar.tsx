@@ -8,10 +8,10 @@ const FOUNDATIONS = [
     { name: "Overview", href: "/foundations", status: "ready" as const },
     { name: "Color", href: "/foundations/color", status: "ready" as const },
     { name: "Typography", href: "/foundations/typography", status: "ready" as const },
-    { name: "Iconography", href: "#", status: "soon" as const },
-    { name: "Grid & spacing", href: "#", status: "soon" as const },
-    { name: "Accessibility", href: "#", status: "soon" as const },
-    { name: "Tokens", href: "#", status: "soon" as const },
+    { name: "Sizing, Spacing & Radius", href: "/foundations/sizing", status: "ready" as const },
+    { name: "Icons, Logos & Flags", href: "/foundations/icons", status: "ready" as const },
+    { name: "Elevation", href: "/foundations/elevation", status: "ready" as const },
+    { name: "Avatar", href: "/foundations/avatar", status: "ready" as const },
 ]
 
 export function FoundationsSidebar() {

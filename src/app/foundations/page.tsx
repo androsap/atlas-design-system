@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Palette, Type, Shapes, LayoutGrid, Accessibility, Braces } from "lucide-react"
+import { Palette, Type, Ruler, Shapes, Layers, CircleUserRound } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const FOUNDATIONS = [
@@ -19,28 +19,28 @@ const FOUNDATIONS = [
         href: "/foundations/typography",
     },
     {
+        icon: Ruler,
+        title: "Sizing, Spacing & Radius",
+        description: "A shared size scale, and the spacing and corner-radius tokens aliased from it.",
+        href: "/foundations/sizing",
+    },
+    {
         icon: Shapes,
-        title: "Iconography",
-        description: "A shared icon set that keeps interface language consistent everywhere.",
-        href: null,
+        title: "Icons, Logos & Flags",
+        description: "Our interface icon set, a brand logo reference, and every UN member state flag.",
+        href: "/foundations/icons",
     },
     {
-        icon: LayoutGrid,
-        title: "Grid & spacing",
-        description: "Layout primitives and a spacing scale for building balanced, aligned pages.",
-        href: null,
+        icon: Layers,
+        title: "Elevation",
+        description: "Subtle shadow tokens for layered UI depth — from flat surfaces to modals.",
+        href: "/foundations/elevation",
     },
     {
-        icon: Accessibility,
-        title: "Accessibility",
-        description: "Guidelines baked into every foundation so accessible is the default.",
-        href: null,
-    },
-    {
-        icon: Braces,
-        title: "Tokens",
-        description: "Design tokens synced from Figma straight into code, no drift.",
-        href: null,
+        icon: CircleUserRound,
+        title: "Avatar",
+        description: "Profile image, icon, memoji or initials that represents a user or role.",
+        href: "/foundations/avatar",
     },
 ]
 

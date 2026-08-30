@@ -916,5 +916,247 @@
       "$type": "dimension",
       "$value": "0px"
     }
+  },
+  "size": {
+    "1": {
+      "$type": "sizing",
+      "$value": 1
+    },
+    "2": {
+      "$type": "sizing",
+      "$value": 2
+    },
+    "4": {
+      "$type": "sizing",
+      "$value": 4
+    },
+    "8": {
+      "$type": "sizing",
+      "$value": 8
+    },
+    "12": {
+      "$type": "sizing",
+      "$value": 12
+    },
+    "16": {
+      "$type": "sizing",
+      "$value": 16
+    },
+    "20": {
+      "$type": "sizing",
+      "$value": 20
+    },
+    "24": {
+      "$type": "sizing",
+      "$value": 24
+    },
+    "32": {
+      "$type": "sizing",
+      "$value": 32
+    },
+    "40": {
+      "$type": "sizing",
+      "$value": 40
+    },
+    "48": {
+      "$type": "sizing",
+      "$value": 48
+    },
+    "56": {
+      "$type": "sizing",
+      "$value": 56
+    },
+    "64": {
+      "$type": "sizing",
+      "$value": 64
+    },
+    "72": {
+      "$type": "sizing",
+      "$value": 72
+    },
+    "80": {
+      "$type": "sizing",
+      "$value": 80
+    },
+    "96": {
+      "$type": "sizing",
+      "$value": 96
+    },
+    "128": {
+      "$type": "sizing",
+      "$value": 128
+    },
+    "160": {
+      "$type": "sizing",
+      "$value": 160
+    },
+    "192": {
+      "$type": "sizing",
+      "$value": 192
+    },
+    "224": {
+      "$type": "sizing",
+      "$value": 224
+    },
+    "256": {
+      "$type": "sizing",
+      "$value": 256
+    },
+    "320": {
+      "$type": "sizing",
+      "$value": 320
+    },
+    "384": {
+      "$type": "sizing",
+      "$value": 384
+    },
+    "512": {
+      "$type": "sizing",
+      "$value": 512
+    },
+    "640": {
+      "$type": "sizing",
+      "$value": 640
+    },
+    "768": {
+      "$type": "sizing",
+      "$value": 768
+    },
+    "null": {
+      "$type": "sizing",
+      "$value": 0
+    },
+    "max": {
+      "$type": "sizing",
+      "$value": 999
+    }
+  },
+  "spacing": {
+    "null": {
+      "$type": "spacing",
+      "$value": "{size.null}"
+    },
+    "4xs": {
+      "$type": "spacing",
+      "$value": "{size.2}"
+    },
+    "3xs": {
+      "$type": "spacing",
+      "$value": "{size.4}"
+    },
+    "2xs": {
+      "$type": "spacing",
+      "$value": "{size.8}"
+    },
+    "xs": {
+      "$type": "spacing",
+      "$value": "{size.12}"
+    },
+    "sm": {
+      "$type": "spacing",
+      "$value": "{size.16}"
+    },
+    "md": {
+      "$type": "spacing",
+      "$value": "{size.20}"
+    },
+    "lg": {
+      "$type": "spacing",
+      "$value": "{size.24}"
+    },
+    "xl": {
+      "$type": "spacing",
+      "$value": "{size.32}"
+    },
+    "2xl": {
+      "$type": "spacing",
+      "$value": "{size.40}"
+    },
+    "3xl": {
+      "$type": "spacing",
+      "$value": "{size.48}"
+    },
+    "4xl": {
+      "$type": "spacing",
+      "$value": "{size.56}"
+    },
+    "5xl": {
+      "$type": "spacing",
+      "$value": "{size.64}"
+    },
+    "6xl": {
+      "$type": "spacing",
+      "$value": "{size.80}"
+    },
+    "7xl": {
+      "$type": "spacing",
+      "$value": "{size.96}"
+    },
+    "8xl": {
+      "$type": "spacing",
+      "$value": "{size.128}"
+    },
+    "9xl": {
+      "$type": "spacing",
+      "$value": "{size.256}"
+    },
+    "max": {
+      "$type": "spacing",
+      "$value": "{size.max}"
+    }
+  },
+  "border": {
+    "null": {
+      "$type": "borderRadius",
+      "$value": "{size.null}"
+    },
+    "4xs": {
+      "$type": "borderRadius",
+      "$value": "{size.2}"
+    },
+    "3xs": {
+      "$type": "borderRadius",
+      "$value": "{size.4}"
+    },
+    "2xs": {
+      "$type": "borderRadius",
+      "$value": "{size.8}"
+    },
+    "xs": {
+      "$type": "borderRadius",
+      "$value": "{size.12}"
+    },
+    "sm": {
+      "$type": "borderRadius",
+      "$value": "{size.16}"
+    },
+    "md": {
+      "$type": "borderRadius",
+      "$value": "{size.20}"
+    },
+    "lg": {
+      "$type": "borderRadius",
+      "$value": "{size.24}"
+    },
+    "xl": {
+      "$type": "borderRadius",
+      "$value": "{size.32}"
+    },
+    "2xl": {
+      "$type": "borderRadius",
+      "$value": "{size.40}"
+    },
+    "3xl": {
+      "$type": "borderRadius",
+      "$value": "{size.48}"
+    },
+    "4xl": {
+      "$type": "borderRadius",
+      "$value": "{size.56}"
+    },
+    "full": {
+      "$type": "borderRadius",
+      "$value": "{size.max}"
+    }
   }
 }

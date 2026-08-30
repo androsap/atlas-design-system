@@ -32,7 +32,7 @@ export function ScrollProgressDots() {
     }, [])
 
     return (
-        <div className="fixed left-6 top-1/2 z-30 hidden -translate-y-1/2 flex-col items-center gap-3 rounded-full bg-[var(--neutral900)]/10 px-2 py-4 backdrop-blur-sm md:flex">
+        <div className="fixed left-6 top-1/2 z-30 hidden -translate-y-1/2 flex-col items-center gap-3 rounded-full bg-[var(--neutral900)]/10 px-2 py-4 backdrop-blur-sm lg:flex">
             {SECTIONS.map((id) => (
                 <button
                     key={id}

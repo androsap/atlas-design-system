@@ -65,6 +65,22 @@
   --text-accent-subtle-body: var(--neutral500);
   --icon-accent-subtle: var(--primary200);
   --text-link: var(--primary300);
+
+  /*
+   * Elevation (--level1..4) is generated from tokens.css as a dark
+   * (neutral900-based) drop-shadow — on a light surface that reads as
+   * depth, but against an already-dark page it's invisible (dark-on-dark).
+   * Dark themes conventionally swap to a light glow instead, so these
+   * override the generated values with the same x/y/blur/spread
+   * progression, just white instead of near-black, and noticeably more
+   * opaque (10/16/22/30% vs the light-mode 4/6/8/12%) — white-on-near-black
+   * needs a much stronger tint than dark-on-white to read at a comparable
+   * visual strength.
+   */
+  --level1: 0 2px 12px 0 rgba(255, 255, 255, 0.1);
+  --level2: 0 4px 8px 0 rgba(255, 255, 255, 0.16);
+  --level3: 0 8px 12px 0 rgba(255, 255, 255, 0.22);
+  --level4: 0 12px 16px 0 rgba(255, 255, 255, 0.3);
 }
 
 @theme inline {

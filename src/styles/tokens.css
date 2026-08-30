@@ -145,6 +145,34 @@
   --textCaseUppercase: uppercase;
   --textDecorationNone: none;
   --paragraphIndent0: 0px;
+  --size1: 1px;
+  --size2: 2px;
+  --size4: 4px;
+  --size8: 8px;
+  --size12: 12px;
+  --size16: 16px;
+  --size20: 20px;
+  --size24: 24px;
+  --size32: 32px;
+  --size40: 40px;
+  --size48: 48px;
+  --size56: 56px;
+  --size64: 64px;
+  --size72: 72px;
+  --size80: 80px;
+  --size96: 96px;
+  --size128: 128px;
+  --size160: 160px;
+  --size192: 192px;
+  --size224: 224px;
+  --size256: 256px;
+  --size320: 320px;
+  --size384: 384px;
+  --size512: 512px;
+  --size640: 640px;
+  --size768: 768px;
+  --sizeNull: 0;
+  --sizeMax: 999px;
   --displayXl: 700 112px/120px Manrope; /** Display Extra Large */
   --displayLg: 700 56px/64px Manrope; /** Display large */
   --displayMd: 700 48px/56px Manrope; /** Display medium */
@@ -163,4 +191,35 @@
   --captionMd: 400 12px/16px Inter; /** Caption text for supplementary information and metadata */
   --captionSm: 400 10px/14px Inter; /** Caption text for supplementary information and metadata, but smaller */
   --overlineBase: 500 11px/15px Inter; /** OVERLINE LABEL TEXT */
+  --spacingNull: var(--sizeNull);
+  --spacing4xs: var(--size2);
+  --spacing3xs: var(--size4);
+  --spacing2xs: var(--size8);
+  --spacingXs: var(--size12);
+  --spacingSm: var(--size16);
+  --spacingMd: var(--size20);
+  --spacingLg: var(--size24);
+  --spacingXl: var(--size32);
+  --spacing2xl: var(--size40);
+  --spacing3xl: var(--size48);
+  --spacing4xl: var(--size56);
+  --spacing5xl: var(--size64);
+  --spacing6xl: var(--size80);
+  --spacing7xl: var(--size96);
+  --spacing8xl: var(--size128);
+  --spacing9xl: var(--size256);
+  --spacingMax: var(--sizeMax);
+  --borderNull: var(--sizeNull);
+  --border4xs: var(--size2);
+  --border3xs: var(--size4);
+  --border2xs: var(--size8);
+  --borderXs: var(--size12);
+  --borderSm: var(--size16);
+  --borderMd: var(--size20);
+  --borderLg: var(--size24);
+  --borderXl: var(--size32);
+  --border2xl: var(--size40);
+  --border3xl: var(--size48);
+  --border4xl: var(--size56);
+  --borderFull: var(--sizeMax);
 }

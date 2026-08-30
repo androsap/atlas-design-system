@@ -85,7 +85,7 @@ function Cursor({
 
 export function HeroCursors() {
     return (
-        <div className="pointer-events-none absolute inset-0 hidden md:block" aria-hidden>
+        <div className="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden>
             {CURSORS.map((cursor) => (
                 <Cursor key={cursor.label} {...cursor} />
             ))}
