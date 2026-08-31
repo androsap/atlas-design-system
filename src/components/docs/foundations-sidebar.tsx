@@ -4,14 +4,21 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 
-const FOUNDATIONS = [
-    { name: "Overview", href: "/foundations", status: "ready" as const },
-    { name: "Color", href: "/foundations/color", status: "ready" as const },
-    { name: "Typography", href: "/foundations/typography", status: "ready" as const },
-    { name: "Sizing, Spacing & Radius", href: "/foundations/sizing", status: "ready" as const },
-    { name: "Icons, Logos & Flags", href: "/foundations/icons", status: "ready" as const },
-    { name: "Elevation", href: "/foundations/elevation", status: "ready" as const },
-    { name: "Avatar", href: "/foundations/avatar", status: "ready" as const },
+type FoundationStatus = "ready" | "soon"
+
+// Explicitly widened to FoundationStatus: every entry today happens to be
+// "ready", and without this annotation TS narrows the whole array to the
+// literal "ready", making the `=== "soon"` check below a type error. This
+// keeps that branch valid for whenever a "soon" entry is added, the same
+// way components-sidebar.tsx's (currently mixed) list works.
+const FOUNDATIONS: { name: string; href: string; status: FoundationStatus }[] = [
+    { name: "Overview", href: "/foundations", status: "ready" },
+    { name: "Color", href: "/foundations/color", status: "ready" },
+    { name: "Typography", href: "/foundations/typography", status: "ready" },
+    { name: "Sizing, Spacing & Radius", href: "/foundations/sizing", status: "ready" },
+    { name: "Icons, Logos & Flags", href: "/foundations/icons", status: "ready" },
+    { name: "Elevation", href: "/foundations/elevation", status: "ready" },
+    { name: "Avatar", href: "/foundations/avatar", status: "ready" },
 ]
 
 export function FoundationsSidebar() {
