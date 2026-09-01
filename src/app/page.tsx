@@ -85,6 +85,7 @@ export default function Home() {
                         width={2008}
                         height={2007}
                         priority
+                        sizes="(min-width: 768px) 448px, 90vw"
                         className="mx-auto h-auto w-full max-w-md"
                     />
                     <div>
@@ -137,6 +138,7 @@ export default function Home() {
                             alt="Atlas components preview"
                             width={1560}
                             height={860}
+                            sizes="(min-width: 1024px) 1560px, (min-width: 672px) 672px, 100vw"
                             className="relative z-[200] h-auto w-full max-w-2xl rounded-2xl border border-[var(--neutral100)] shadow-xl [transform-origin:top] lg:w-[1560px] lg:max-w-none lg:[transform:rotateX(48deg)_rotateZ(-16deg)] [html[data-theme=dark]_&]:hidden"
                         />
                         <Image
@@ -144,6 +146,7 @@ export default function Home() {
                             alt="Atlas components preview"
                             width={1560}
                             height={860}
+                            sizes="(min-width: 1024px) 1560px, (min-width: 672px) 672px, 100vw"
                             className="relative z-[200] hidden h-auto w-full max-w-2xl rounded-2xl border border-[var(--neutral100)] shadow-xl [transform-origin:top] lg:w-[1560px] lg:max-w-none lg:[transform:rotateX(48deg)_rotateZ(-16deg)] [html[data-theme=dark]_&]:block"
                         />
                     </div>
@@ -200,11 +203,9 @@ export default function Home() {
                             Browse the component library and keep every product across the
                             ecosystem speaking the same design language.
                         </p>
-                    </div>
-                    <div>
                         <Link
                             href="/components/button"
-                            className="shrink-0 rounded-[var(--radius-md)] bg-white px-5 py-3 text-sm font-medium text-[var(--primary900)] transition-opacity hover:opacity-90"
+                            className="mt-8 inline-block shrink-0 rounded-[var(--radius-md)] bg-white px-5 py-3 text-sm font-medium text-[var(--primary900)] transition-opacity hover:opacity-90"
                         >
                             Browse components
                         </Link>

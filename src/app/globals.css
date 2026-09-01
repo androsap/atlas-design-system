@@ -96,6 +96,55 @@ body {
   font-family: var(--font-sans), sans-serif;
 }
 
+/*
+ * Slim, unobtrusive scrollbars — a transparent track instead of the
+ * browser's default opaque one, with a subtle thumb that picks up a touch
+ * more contrast on hover. Applied with * (not just html/body) so every
+ * overflow-x-auto container — the component variant matrices, code
+ * blocks — gets the same treatment as the page scrollbar itself.
+ * --neutral200/300 already invert correctly for dark mode, so no separate
+ * dark-mode override is needed here.
+ */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--neutral200) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* The up/down (or left/right) arrow-cap buttons at each end of a classic
+ * Windows-style scrollbar — Chrome on Windows renders these with their own
+ * opaque background by default, which shows up as a small solid square
+ * even with the track above set to transparent. Removed entirely rather
+ * than restyled, matching the slim/borderless look everywhere else. */
+*::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Where a horizontal and vertical scrollbar meet, in a container with
+ * overflow in both directions. */
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--neutral200);
+  border: 2px solid transparent;
+  border-radius: 9999px;
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--neutral300);
+}
+
 @keyframes float {
   0%,
   100% {

@@ -125,7 +125,7 @@ function StateButton({
 
 export function ButtonVariantMatrix() {
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto overflow-y-hidden">
             <div className="min-w-[1100px]">
                 <div className="grid grid-cols-[220px_repeat(5,1fr)] gap-x-4 gap-y-1 border-b border-[var(--neutral100)] pb-3">
                     <span className="sticky left-0 z-10 block w-[220px] bg-[var(--neutral0)]" />

@@ -51,7 +51,7 @@ const THEMES: { key: TooltipVariant; label: string }[] = [
 
 export function TooltipVariantMatrix() {
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto overflow-y-hidden">
             <div className="min-w-[640px]">
                 <div className="grid grid-cols-[100px_1fr_1fr] gap-x-6 border-b border-[var(--neutral100)] pb-3">
                     <span className="text-xs font-semibold tracking-wide text-[var(--neutral400)] uppercase">

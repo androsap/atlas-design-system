@@ -11,7 +11,7 @@ export async function CodeBlock({ code, lang = "tsx" }: { code: string; lang?: s
                 className="absolute right-3 top-3 opacity-0 transition-opacity group-hover:opacity-100"
             />
             <div
-                className="overflow-x-auto p-4 text-sm [&_pre]:bg-transparent! [&_pre]:p-0!"
+                className="overflow-x-auto overflow-y-hidden p-4 text-sm [&_pre]:bg-transparent! [&_pre]:p-0!"
                 dangerouslySetInnerHTML={{ __html: html }}
             />
         </div>

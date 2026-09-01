@@ -109,7 +109,7 @@ export function TooltipPlayground() {
                     code={code}
                     className="absolute right-3 top-3 opacity-0 transition-opacity group-hover:opacity-100"
                 />
-                <pre className="overflow-x-auto p-4 text-sm text-[#c9d1d9]">
+                <pre className="overflow-x-auto overflow-y-hidden p-4 text-sm text-[#c9d1d9]">
                     <code>{code}</code>
                 </pre>
             </div>

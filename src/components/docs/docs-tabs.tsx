@@ -15,7 +15,7 @@ const TABS = [
 export function DocsTabs({ children }: { children: React.ReactNode[] }) {
     return (
         <Tabs.Root defaultValue="overview" className="mt-10">
-            <Tabs.List className="flex gap-1 overflow-x-auto border-b border-[var(--neutral100)]">
+            <Tabs.List className="flex gap-1 overflow-x-auto overflow-y-hidden border-b border-[var(--neutral100)]">
                 {TABS.map((tab) => (
                     <Tabs.Trigger
                         key={tab.value}

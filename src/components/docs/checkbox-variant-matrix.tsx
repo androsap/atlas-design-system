@@ -25,7 +25,7 @@ const STATES: { key: StateKey; label: string }[] = [
 
 export function CheckboxVariantMatrix() {
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto overflow-y-hidden">
             <div className="min-w-[760px]">
                 <div className="grid grid-cols-[140px_repeat(4,1fr)] gap-x-4 border-b border-[var(--neutral100)] pb-3">
                     <span className="text-xs font-semibold tracking-wide text-[var(--neutral400)] uppercase">

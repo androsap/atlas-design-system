@@ -4,23 +4,30 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 
-const COMPONENTS = [
-    { name: "Overview", href: "/components", status: "ready" as const },
-    { name: "Button", href: "/components/button", status: "ready" as const },
-    { name: "Input, Text Area", href: "/components/input", status: "ready" as const },
-    { name: "Dropdown", href: "/components/dropdown", status: "ready" as const },
-    { name: "Checkbox", href: "/components/checkbox", status: "ready" as const },
-    { name: "Radio Button", href: "/components/radio-button", status: "ready" as const },
-    { name: "Tooltip", href: "/components/tooltip", status: "ready" as const },
-    { name: "Alert & Toast", href: "#", status: "soon" as const },
-    { name: "Chips", href: "#", status: "soon" as const },
-    { name: "Badge", href: "#", status: "soon" as const },
-    { name: "Switch", href: "#", status: "soon" as const },
-    { name: "Breadcrumbs", href: "#", status: "soon" as const },
-    { name: "Date Picker", href: "#", status: "soon" as const },
-    { name: "Progress", href: "#", status: "soon" as const },
-    { name: "Spinner", href: "#", status: "soon" as const },
-    { name: "Uploader", href: "#", status: "soon" as const },
+type ComponentStatus = "ready" | "soon"
+
+// Explicitly widened to ComponentStatus: every entry is "ready" now that
+// the last component has shipped, and without this annotation TS narrows
+// the whole array to that one literal, making the `=== "soon"` check below
+// a type error. Keeps that branch valid for whenever a new "soon" entry is
+// added — same fix as foundations-sidebar.tsx.
+const COMPONENTS: { name: string; href: string; status: ComponentStatus }[] = [
+    { name: "Overview", href: "/components", status: "ready" },
+    { name: "Button", href: "/components/button", status: "ready" },
+    { name: "Input, Text Area", href: "/components/input", status: "ready" },
+    { name: "Dropdown", href: "/components/dropdown", status: "ready" },
+    { name: "Checkbox", href: "/components/checkbox", status: "ready" },
+    { name: "Radio Button", href: "/components/radio-button", status: "ready" },
+    { name: "Tooltip", href: "/components/tooltip", status: "ready" },
+    { name: "Alert & Toast", href: "/components/alert-toast", status: "ready" },
+    { name: "Chips", href: "/components/chips", status: "ready" },
+    { name: "Badge", href: "/components/badge", status: "ready" },
+    { name: "Switch", href: "/components/switch", status: "ready" },
+    { name: "Breadcrumbs", href: "/components/breadcrumbs", status: "ready" },
+    { name: "Date Picker", href: "/components/date-picker", status: "ready" },
+    { name: "Progress", href: "/components/progress", status: "ready" },
+    { name: "Spinner", href: "/components/spinner", status: "ready" },
+    { name: "Uploader", href: "/components/uploader", status: "ready" },
 ]
 
 export function ComponentsSidebar() {
