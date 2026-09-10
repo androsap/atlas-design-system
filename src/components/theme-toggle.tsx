@@ -31,7 +31,7 @@ export function ThemeToggle() {
     const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 
     if (!theme) {
-        return <span className="h-9 w-20" aria-hidden />
+        return <span className="h-9 w-9 sm:w-20" aria-hidden />
     }
 
     return (
@@ -39,10 +39,10 @@ export function ThemeToggle() {
             type="button"
             aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="flex items-center gap-2 whitespace-nowrap rounded-[var(--radius-md)] bg-[var(--color-primary)] px-4 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90"
+            className="flex items-center justify-center gap-2 whitespace-nowrap rounded-[var(--radius-md)] bg-[var(--color-primary)] p-2 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:px-4 sm:py-2"
         >
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-            {theme === "dark" ? "Light theme" : "Dark theme"}
+            <span className="hidden sm:inline">{theme === "dark" ? "Light theme" : "Dark theme"}</span>
         </button>
     )
 }

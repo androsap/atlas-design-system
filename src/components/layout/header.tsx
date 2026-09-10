@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { MobileNav } from "@/components/layout/mobile-nav"
 
 const NAV_LINKS = [
     { label: "Get started", href: "/getting-started" },
@@ -49,6 +50,7 @@ export function Header() {
 
                 <div className="flex items-center gap-3">
                     <ThemeToggle />
+                    <MobileNav links={NAV_LINKS} />
                 </div>
             </div>
         </header>
