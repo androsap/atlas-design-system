@@ -7,6 +7,7 @@ const NAV_LINKS = [
     { label: "Get started", href: "/getting-started" },
     { label: "Foundations", href: "/foundations" },
     { label: "Components", href: "/components" },
+    { label: "Showcase", href: "/showcase" },
 ]
 
 export function Header() {

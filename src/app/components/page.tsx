@@ -2,6 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 import {
+    ArrowRight,
     MousePointerClick,
     TextCursorInput,
     ChevronDown,
@@ -151,6 +152,13 @@ export default function ComponentsPage() {
                         Production-ready building blocks, documented with usage guidelines and
                         accessibility notes — the same components used across every Atlas product.
                     </p>
+                    <Link
+                        href="/showcase"
+                        className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--text-link)] hover:underline"
+                    >
+                        View every component on one page
+                        <ArrowRight size={14} />
+                    </Link>
                 </div>
             </div>
 
