@@ -1,6 +1,6 @@
 import { Info, type LucideIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { TOOLTIP_VARIANT_CLASSES, type TooltipVariant } from "@/components/ui/tooltip"
+import { TOOLTIP_VARIANT_CLASSES, type TooltipVariant } from "@asyst/atlas"
 
 /**
  * A tooltip is only ever on screen while it's open, so a static spec sheet

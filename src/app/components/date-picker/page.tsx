@@ -3,9 +3,9 @@ import { DocsTabs } from "@/components/docs/docs-tabs"
 import { CodeBlock } from "@/components/docs/code-block"
 import { DatePickerPlayground } from "@/components/docs/date-picker-playground"
 import { DatePickerVariantMatrix } from "@/components/docs/date-picker-variant-matrix"
-import { Calendar } from "@/components/ui/calendar"
-import { DatePicker } from "@/components/ui/date-picker"
-import { DateRangePicker } from "@/components/ui/date-range-picker"
+import { Calendar } from "@asyst/atlas"
+import { DatePicker } from "@asyst/atlas"
+import { DateRangePicker } from "@asyst/atlas"
 
 const USAGE_DO = [
     "Use DatePicker for a single date — a due date, a birthday, an appointment.",
@@ -29,7 +29,7 @@ const ACCESSIBILITY_NOTES = [
     "Days outside the shown month are real disabled buttons, not just dimmed text — they're skipped when tabbing through and can't be activated by accident.",
 ]
 
-const SINGLE_CODE = `import { DatePicker } from "@/components/ui/date-picker"
+const SINGLE_CODE = `import { DatePicker } from "@asyst/atlas"
 
 export function Example() {
     return (
@@ -40,7 +40,7 @@ export function Example() {
     )
 }`
 
-const RANGE_CODE = `import { DateRangePicker } from "@/components/ui/date-range-picker"
+const RANGE_CODE = `import { DateRangePicker } from "@asyst/atlas"
 
 export function Example() {
     return (

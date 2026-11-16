@@ -3,7 +3,7 @@ import { DocsTabs } from "@/components/docs/docs-tabs"
 import { CodeBlock } from "@/components/docs/code-block"
 import { RadioPlayground } from "@/components/docs/radio-playground"
 import { RadioVariantMatrix } from "@/components/docs/radio-variant-matrix"
-import { RadioButton } from "@/components/ui/radio-button"
+import { RadioButton } from "@asyst/atlas"
 
 const USAGE_DO = [
     "Use Radio Button when exactly one option must be picked from a visible, short list.",
@@ -28,7 +28,7 @@ const ACCESSIBILITY_NOTES = [
 ]
 
 const IMPORT_CODE = `import { useState } from "react"
-import { RadioButton } from "@/components/ui/radio-button"
+import { RadioButton } from "@asyst/atlas"
 
 const SIZES = ["sm", "md", "lg"]
 

@@ -3,7 +3,7 @@ import { DocsTabs } from "@/components/docs/docs-tabs"
 import { CodeBlock } from "@/components/docs/code-block"
 import { UploaderPlayground } from "@/components/docs/uploader-playground"
 import { UploaderVariantMatrix } from "@/components/docs/uploader-variant-matrix"
-import { Uploader } from "@/components/ui/uploader"
+import { Uploader } from "@asyst/atlas"
 
 const USAGE_DO = [
     "State the size limit up front in the dropzone itself, not just after someone hits it.",
@@ -27,7 +27,7 @@ const ACCESSIBILITY_NOTES = [
     "Drag-and-drop is an addition, never the only path — every capability it offers is also reachable by clicking and using the keyboard.",
 ]
 
-const IMPORT_CODE = `import { Uploader } from "@/components/ui/uploader"
+const IMPORT_CODE = `import { Uploader } from "@asyst/atlas"
 
 export function Example() {
     return <Uploader maxSizeBytes={5 * 1024 * 1024} multiple />

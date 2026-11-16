@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Settings } from "lucide-react"
-import { Input } from "@/components/ui/input"
+import { Input } from "@asyst/atlas"
 import { CopyButton } from "@/components/docs/copy-button"
 
 const SIZES = ["sm", "md", "lg"] as const

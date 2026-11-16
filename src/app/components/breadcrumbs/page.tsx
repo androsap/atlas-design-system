@@ -3,7 +3,7 @@ import { DocsTabs } from "@/components/docs/docs-tabs"
 import { CodeBlock } from "@/components/docs/code-block"
 import { BreadcrumbsPlayground } from "@/components/docs/breadcrumbs-playground"
 import { BreadcrumbsVariantMatrix } from "@/components/docs/breadcrumbs-variant-matrix"
-import { Breadcrumbs } from "@/components/ui/breadcrumbs"
+import { Breadcrumbs } from "@asyst/atlas"
 
 const USAGE_DO = [
     "Use Breadcrumbs for content that lives inside a real hierarchy — a category tree, nested settings, a multi-step location.",
@@ -28,7 +28,7 @@ const ACCESSIBILITY_NOTES = [
 ]
 
 const IMPORT_CODE = `import { Home } from "lucide-react"
-import { Breadcrumbs } from "@/components/ui/breadcrumbs"
+import { Breadcrumbs } from "@asyst/atlas"
 
 export function Example() {
     return (

@@ -2,8 +2,8 @@
 
 import { Fragment } from "react"
 import { Hash } from "lucide-react"
-import { Chip } from "@/components/ui/chip"
-import type { ChipColor, ChipVariant, ChipSize } from "@/components/ui/chip"
+import { Chip } from "@asyst/atlas"
+import type { ChipColor, ChipVariant, ChipSize } from "@asyst/atlas"
 
 type StateKey = "default" | "selected" | "focused"
 

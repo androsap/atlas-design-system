@@ -1,5 +1,5 @@
-import { Alert } from "@/components/ui/alert"
-import type { AlertColor, AlertLayout } from "@/components/ui/alert"
+import { Alert } from "@asyst/atlas"
+import type { AlertColor, AlertLayout } from "@asyst/atlas"
 
 type Row = { color: AlertColor; title: string; description: string; actionLabel: string }
 

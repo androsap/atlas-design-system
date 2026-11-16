@@ -1,5 +1,5 @@
-import { Spinner } from "@/components/ui/spinner"
-import type { SpinnerColor, SpinnerSize } from "@/components/ui/spinner"
+import { Spinner } from "@asyst/atlas"
+import type { SpinnerColor, SpinnerSize } from "@asyst/atlas"
 
 const COLORS: { key: SpinnerColor; label: string }[] = [
     { key: "neutral", label: "Neutral" },

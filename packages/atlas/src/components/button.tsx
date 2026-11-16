@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from "../lib/utils.js"
 import { ButtonHTMLAttributes } from "react"
 import { type LucideIcon } from "lucide-react"
 
@@ -6,7 +6,7 @@ export type ButtonColor = "brand" | "neutral" | "danger" | "warning" | "success"
 export type ButtonVariant = "primary" | "secondary" | "tertiary"
 export type ButtonSize = "sm" | "md" | "lg"
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     color?: ButtonColor
     variant?: ButtonVariant
     size?: ButtonSize

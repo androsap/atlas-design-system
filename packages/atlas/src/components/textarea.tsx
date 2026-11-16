@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from "../lib/utils.js"
 import { forwardRef, TextareaHTMLAttributes, useId } from "react"
 import { type LucideIcon } from "lucide-react"
 

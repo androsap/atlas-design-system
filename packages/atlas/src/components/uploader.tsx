@@ -2,8 +2,8 @@
 
 import { useEffect, useId, useRef, useState, type DragEvent, type ChangeEvent } from "react"
 import { Upload, X, CheckCircle2, AlertCircle } from "lucide-react"
-import { cn } from "@/lib/utils"
-import { Progress } from "./progress"
+import { cn } from "../lib/utils.js"
+import { Progress } from "./progress.js"
 
 export interface UploaderProps {
     /** Defaults to 1 MB, matching the spec. */

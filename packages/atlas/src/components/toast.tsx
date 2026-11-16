@@ -3,12 +3,12 @@
 import { createContext, useCallback, useContext, useState, type ReactNode } from "react"
 import * as ToastPrimitive from "@radix-ui/react-toast"
 import { X } from "lucide-react"
-import { cn } from "@/lib/utils"
-import { NOTIFICATION_ICON, NOTIFICATION_CLASSES, type NotificationColor } from "./notification"
+import { cn } from "../lib/utils.js"
+import { NOTIFICATION_ICON, NOTIFICATION_CLASSES, type NotificationColor } from "./notification.js"
 
 export type ToastColor = NotificationColor
 
-interface ToastOptions {
+export interface ToastOptions {
     color?: ToastColor
     title: string
     description?: string
@@ -38,7 +38,11 @@ export function useToast() {
  * tree that needs to trigger toasts — a whole app in practice, or just one
  * demo here — in a single <Toaster>; call useToast() anywhere inside it.
  */
-export function Toaster({ children }: { children: ReactNode }) {
+export interface ToasterProps {
+    children: ReactNode
+}
+
+export function Toaster({ children }: ToasterProps) {
     const [items, setItems] = useState<ToastItem[]>([])
 
     const toast = useCallback((options: ToastOptions) => {

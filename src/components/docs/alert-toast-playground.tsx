@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Alert, type AlertColor, type AlertLayout } from "@/components/ui/alert"
-import { Toaster, useToast } from "@/components/ui/toast"
+import { Alert, type AlertColor, type AlertLayout } from "@asyst/atlas"
+import { Toaster, useToast } from "@asyst/atlas"
 import { CopyButton } from "@/components/docs/copy-button"
 
 const TYPES = ["alert", "toast"] as const

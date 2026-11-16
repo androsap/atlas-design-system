@@ -3,7 +3,7 @@ import { DocsTabs } from "@/components/docs/docs-tabs"
 import { CodeBlock } from "@/components/docs/code-block"
 import { CheckboxPlayground } from "@/components/docs/checkbox-playground"
 import { CheckboxVariantMatrix } from "@/components/docs/checkbox-variant-matrix"
-import { Checkbox } from "@/components/ui/checkbox"
+import { Checkbox } from "@asyst/atlas"
 
 const USAGE_DO = [
     "Use Checkbox for independent on/off choices, or for selecting multiple items from a list.",
@@ -28,7 +28,7 @@ const ACCESSIBILITY_NOTES = [
 ]
 
 const IMPORT_CODE = `import { useState } from "react"
-import { Checkbox } from "@/components/ui/checkbox"
+import { Checkbox } from "@asyst/atlas"
 
 export function Example() {
     const [checked, setChecked] = useState(false)

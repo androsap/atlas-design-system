@@ -1,7 +1,7 @@
 "use client"
 
 import { ChevronDown, Settings } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button } from "@asyst/atlas"
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -9,7 +9,7 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@asyst/atlas"
 
 // A Server Component (page.tsx) can't pass a component reference like
 // `Settings` as a prop directly into a "use client" component (only plain

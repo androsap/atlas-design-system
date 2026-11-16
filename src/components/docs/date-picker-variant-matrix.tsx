@@ -1,6 +1,6 @@
 "use client"
 
-import { Calendar } from "@/components/ui/calendar"
+import { Calendar } from "@asyst/atlas"
 
 // Fixed, illustrative dates — not the real "today" — so this reference
 // grid renders the same way every time it's viewed.

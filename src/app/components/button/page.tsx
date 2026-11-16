@@ -3,7 +3,7 @@ import { DocsTabs } from "@/components/docs/docs-tabs"
 import { CodeBlock } from "@/components/docs/code-block"
 import { ButtonPlayground } from "@/components/docs/button-playground"
 import { ButtonVariantMatrix } from "@/components/docs/button-variant-matrix"
-import { Button } from "@/components/ui/button"
+import { Button } from "@asyst/atlas"
 
 const USAGE_DO = [
     "Use Brand Primary once per view for the single most important action.",
@@ -27,7 +27,7 @@ const ACCESSIBILITY_NOTES = [
     "Every color family's Primary (filled) text meets WCAG AA contrast (4.5:1) for white text against its 500-shade background.",
 ]
 
-const IMPORT_CODE = `import { Button } from "@/components/ui/button"
+const IMPORT_CODE = `import { Button } from "@asyst/atlas"
 import { RefreshCw } from "lucide-react"
 
 export function Example() {

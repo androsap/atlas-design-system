@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { ChevronDown, Settings } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button } from "@asyst/atlas"
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -10,7 +10,7 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@asyst/atlas"
 import { CopyButton } from "@/components/docs/copy-button"
 
 export function DropdownPlayground() {

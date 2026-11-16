@@ -28,7 +28,7 @@ const ACCESSIBILITY_NOTES = [
 ]
 
 const ALERT_IMPORT_CODE = `import { useState } from "react"
-import { Alert } from "@/components/ui/alert"
+import { Alert } from "@asyst/atlas"
 
 export function Example() {
     const [dismissed, setDismissed] = useState(false)
@@ -47,7 +47,7 @@ export function Example() {
     )
 }`
 
-const TOAST_IMPORT_CODE = `import { Toaster, useToast } from "@/components/ui/toast"
+const TOAST_IMPORT_CODE = `import { Toaster, useToast } from "@asyst/atlas"
 
 // Mount once, near the root of whatever needs to trigger toasts.
 export function App({ children }: { children: React.ReactNode }) {

@@ -59,7 +59,7 @@ import {
     border3xl,
     border4xl,
     borderFull,
-} from "@/tokens/generated"
+} from "@asyst/atlas/tokens"
 
 const SIZE_SCALE = [
     { token: "size.null", value: sizeNull },

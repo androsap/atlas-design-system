@@ -1,7 +1,6 @@
-import { Fragment } from "react"
-import Link from "next/link"
+import { Fragment, type ElementType } from "react"
 import { ChevronRight, type LucideIcon } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { cn } from "../lib/utils.js"
 
 export type BreadcrumbState = "default" | "hover" | "active"
 
@@ -22,6 +21,10 @@ export interface BreadcrumbItem {
 export interface BreadcrumbsProps {
     items: BreadcrumbItem[]
     className?: string
+    /** Component used to render linked crumbs. Defaults to a plain `<a>`;
+     * pass your router's link (e.g. Next.js `Link`) for client-side routing.
+     * It receives `href`, `className` and `children`. */
+    linkComponent?: ElementType
 }
 
 const STATE_CLASSES: Record<BreadcrumbState, string> = {
@@ -30,7 +33,7 @@ const STATE_CLASSES: Record<BreadcrumbState, string> = {
     active: "font-medium text-[var(--neutral900)]",
 }
 
-export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
+export function Breadcrumbs({ items, className, linkComponent: Link = "a" }: BreadcrumbsProps) {
     return (
         <nav aria-label="Breadcrumb" className={className}>
             <ol className="flex flex-wrap items-center gap-1.5 text-sm">

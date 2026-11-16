@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Alert } from "@/components/ui/alert"
-import { Toaster, useToast } from "@/components/ui/toast"
+import { Alert } from "@asyst/atlas"
+import { Toaster, useToast } from "@asyst/atlas"
 
 /**
  * Client-only wrapper for the Overview/Anatomy demos — kept out of the

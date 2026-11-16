@@ -34,7 +34,7 @@ import {
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
-} from "@/components/ui/tooltip"
+} from "@asyst/atlas"
 
 export function Example() {
     return (

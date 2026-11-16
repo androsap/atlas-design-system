@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from "../lib/utils.js"
 
 export type SpinnerColor = "neutral" | "info" | "danger"
 export type SpinnerSize = "xs" | "sm" | "md" | "lg" | "xl"

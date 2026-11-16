@@ -3,7 +3,7 @@
 import * as React from "react"
 import * as TooltipPrimitive from "@radix-ui/react-tooltip"
 import { type LucideIcon } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { cn } from "../lib/utils.js"
 
 export const TooltipProvider = TooltipPrimitive.Provider
 export const Tooltip = TooltipPrimitive.Root
@@ -29,7 +29,7 @@ export const TOOLTIP_ARROW_CLASSES: Record<TooltipVariant, string> = {
     light: "fill-[var(--neutral0)]",
 }
 
-interface TooltipContentProps extends React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> {
+export interface TooltipContentProps extends React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> {
     variant?: TooltipVariant
     icon?: LucideIcon
     title?: string

@@ -1,7 +1,7 @@
 import { Fragment } from "react"
 import { Settings } from "lucide-react"
-import { Input, type InputSize } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { Input, type InputSize } from "@asyst/atlas"
+import { Textarea } from "@asyst/atlas"
 
 type StateRow = {
     label: string

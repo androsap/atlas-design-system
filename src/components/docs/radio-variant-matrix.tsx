@@ -1,4 +1,4 @@
-import { RadioButton, type RadioColor, type RadioSize } from "@/components/ui/radio-button"
+import { RadioButton, type RadioColor, type RadioSize } from "@asyst/atlas"
 
 type Group = { label: string; color: RadioColor; disabled?: boolean }
 

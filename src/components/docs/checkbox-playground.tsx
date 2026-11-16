@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Checkbox } from "@/components/ui/checkbox"
+import { Checkbox } from "@asyst/atlas"
 import { CopyButton } from "@/components/docs/copy-button"
 
 const COLORS = ["primary", "danger", "neutral"] as const

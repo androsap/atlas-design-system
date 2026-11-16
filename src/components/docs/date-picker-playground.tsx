@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { DatePicker } from "@/components/ui/date-picker"
-import { DateRangePicker } from "@/components/ui/date-range-picker"
+import { DatePicker } from "@asyst/atlas"
+import { DateRangePicker } from "@asyst/atlas"
 import { CopyButton } from "@/components/docs/copy-button"
 
 const MODES = ["single", "range"] as const

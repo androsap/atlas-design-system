@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { RefreshCw } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button } from "@asyst/atlas"
 import { CopyButton } from "@/components/docs/copy-button"
 
 const COLORS = ["brand", "neutral", "danger", "warning", "success"] as const

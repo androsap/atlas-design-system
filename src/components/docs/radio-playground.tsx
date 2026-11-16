@@ -1,7 +1,7 @@
 "use client"
 
 import { useId, useState } from "react"
-import { RadioButton } from "@/components/ui/radio-button"
+import { RadioButton } from "@asyst/atlas"
 import { CopyButton } from "@/components/docs/copy-button"
 
 const COLORS = ["primary", "danger", "neutral"] as const

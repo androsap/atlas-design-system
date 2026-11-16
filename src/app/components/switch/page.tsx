@@ -28,7 +28,7 @@ const ACCESSIBILITY_NOTES = [
 ]
 
 const IMPORT_CODE = `import { useState } from "react"
-import { Switch } from "@/components/ui/switch"
+import { Switch } from "@asyst/atlas"
 
 export function Example() {
     const [checked, setChecked] = useState(false)

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Progress } from "@/components/ui/progress"
+import { Progress } from "@asyst/atlas"
 
 /**
  * A real, running download simulation — value genuinely advances over time

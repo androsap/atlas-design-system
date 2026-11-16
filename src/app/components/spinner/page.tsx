@@ -4,7 +4,7 @@ import { CodeBlock } from "@/components/docs/code-block"
 import { SpinnerPlayground } from "@/components/docs/spinner-playground"
 import { SpinnerVariantMatrix } from "@/components/docs/spinner-variant-matrix"
 import { SpinnerButtonDemo, SpinnerSectionDemo } from "@/components/docs/spinner-demo"
-import { Spinner } from "@/components/ui/spinner"
+import { Spinner } from "@asyst/atlas"
 
 const USAGE_DO = [
     "Use Spinner when you can't measure completion — an unknown-length request, a page that's still loading.",
@@ -27,7 +27,7 @@ const ACCESSIBILITY_NOTES = [
     "Rotation is a pure CSS animation, so it keeps running smoothly even during heavy JavaScript work elsewhere on the page.",
 ]
 
-const IMPORT_CODE = `import { Spinner } from "@/components/ui/spinner"
+const IMPORT_CODE = `import { Spinner } from "@asyst/atlas"
 
 export function SaveButton() {
     const [loading, setLoading] = useState(false)

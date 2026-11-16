@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Switch, type SwitchColor, type SwitchSize } from "@/components/ui/switch"
+import { Switch, type SwitchColor, type SwitchSize } from "@asyst/atlas"
 import { CopyButton } from "@/components/docs/copy-button"
 
 const COLORS = ["neutral", "primary", "status"] as const

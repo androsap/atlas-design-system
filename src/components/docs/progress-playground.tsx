@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Progress, type ProgressColor, type ProgressLayout } from "@/components/ui/progress"
+import { Progress, type ProgressColor, type ProgressLayout } from "@asyst/atlas"
 import { CopyButton } from "@/components/docs/copy-button"
 
 const COLORS = ["neutral", "info", "danger"] as const

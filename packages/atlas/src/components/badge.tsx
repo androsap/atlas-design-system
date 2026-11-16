@@ -1,6 +1,6 @@
 import { type LucideIcon } from "lucide-react"
 import type { ReactNode } from "react"
-import { cn } from "@/lib/utils"
+import { cn } from "../lib/utils.js"
 
 export type BadgeColor = "neutral" | "primary" | "secondary" | "info" | "success" | "warning" | "danger"
 export type BadgeVariant = "fill" | "outline" | "light"

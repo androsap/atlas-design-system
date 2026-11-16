@@ -26,7 +26,7 @@ const ACCESSIBILITY_NOTES = [
     "When a badge sits on top of another control (like the cart icon here), the count reads out as part of that control's own accessible name — attach your own aria-label to the control, not the badge.",
 ]
 
-const IMPORT_CODE = `import { Badge } from "@/components/ui/badge"
+const IMPORT_CODE = `import { Badge } from "@asyst/atlas"
 
 export function CartIcon({ count }: { count: number }) {
     return (

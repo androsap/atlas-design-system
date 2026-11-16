@@ -4,7 +4,7 @@ import { CodeBlock } from "@/components/docs/code-block"
 import { ProgressPlayground } from "@/components/docs/progress-playground"
 import { ProgressVariantMatrix } from "@/components/docs/progress-variant-matrix"
 import { ProgressDownloadDemo } from "@/components/docs/progress-demo"
-import { Progress } from "@/components/ui/progress"
+import { Progress } from "@asyst/atlas"
 
 const USAGE_DO = [
     "Use Progress only when you can actually measure completion — a byte count, a step number, a known duration.",
@@ -28,7 +28,7 @@ const ACCESSIBILITY_NOTES = [
 ]
 
 const IMPORT_CODE = `import { useState, useEffect } from "react"
-import { Progress } from "@/components/ui/progress"
+import { Progress } from "@asyst/atlas"
 
 export function Example() {
     const [value, setValue] = useState(0)

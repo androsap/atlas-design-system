@@ -1,6 +1,6 @@
 import { Home } from "lucide-react"
-import { Breadcrumbs } from "@/components/ui/breadcrumbs"
-import type { BreadcrumbState } from "@/components/ui/breadcrumbs"
+import { Breadcrumbs } from "@asyst/atlas"
+import type { BreadcrumbState } from "@asyst/atlas"
 
 const STATES: { key: BreadcrumbState; label: string }[] = [
     { key: "default", label: "Default" },

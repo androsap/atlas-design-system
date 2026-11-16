@@ -3,14 +3,16 @@ import { register } from '@tokens-studio/sd-transforms';
 
 register(StyleDictionary, { usesDtcg: true });
 
+// Token sources and outputs live in the @asyst/atlas package so the design
+// tokens ship with the components that use them.
 export default {
-    source: ['src/tokens/**/*.json'],
+    source: ['packages/atlas/tokens/**/*.json'],
     preprocessors: ['tokens-studio'],
     usesDtcg: true,
     platforms: {
         css: {
             transformGroup: 'tokens-studio',
-            buildPath: 'src/styles/',
+            buildPath: 'packages/atlas/src/styles/',
             files: [
                 {
                     destination: 'tokens.css',
@@ -23,9 +25,9 @@ export default {
         },
         ts: {
             transformGroup: 'tokens-studio',
-            buildPath: 'src/tokens/',
+            buildPath: 'packages/atlas/src/',
             files: [
-                { destination: 'generated.ts', format: 'javascript/es6' }
+                { destination: 'tokens.ts', format: 'javascript/es6' }
             ]
         }
     }

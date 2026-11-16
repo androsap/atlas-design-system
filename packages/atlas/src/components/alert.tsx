@@ -2,8 +2,8 @@
 
 import { useState, type ReactNode } from "react"
 import { X, type LucideIcon } from "lucide-react"
-import { cn } from "@/lib/utils"
-import { NOTIFICATION_ICON, NOTIFICATION_CLASSES, type NotificationColor } from "./notification"
+import { cn } from "../lib/utils.js"
+import { NOTIFICATION_ICON, NOTIFICATION_CLASSES, type NotificationColor } from "./notification.js"
 
 export type AlertColor = NotificationColor
 export type AlertLayout = "stacked" | "inline"

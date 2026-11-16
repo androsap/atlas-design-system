@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Uploader } from "@/components/ui/uploader"
+import { Uploader } from "@asyst/atlas"
 import { CopyButton } from "@/components/docs/copy-button"
 
 const SIZE_OPTIONS = [

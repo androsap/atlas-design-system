@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Spinner, type SpinnerColor, type SpinnerSize } from "@/components/ui/spinner"
+import { Spinner, type SpinnerColor, type SpinnerSize } from "@asyst/atlas"
 import { CopyButton } from "@/components/docs/copy-button"
 
 const COLORS = ["neutral", "info", "danger"] as const

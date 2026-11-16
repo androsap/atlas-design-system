@@ -1,0 +1,138 @@
+# Release @asyst/atlas from GitHub (no npm registry) and deploy the docs site.
+#
+# Flow (Changesets):
+#   1. A PR with a .changeset/*.md file is merged.
+#   2. This workflow opens/updates a "Version Packages" PR (version bump + CHANGELOG).
+#   3. Merging that PR runs this workflow again, which:
+#        - builds the package,
+#        - commits the built package (package.json + dist + README + CHANGELOG)
+#          to the `release` branch,
+#        - tags that commit as v<version>.
+#   4. The docs site is deployed after every run, built against the same package.
+#
+# Consumers install straight from GitHub:
+#   npm i github:<owner>/<repo>#semver:^0.2.0     (recommended: follows semver tags)
+#   npm i github:<owner>/<repo>#v0.2.0            (exact version)
+#   npm i github:<owner>/<repo>#release           (latest release)
+#
+# Optional repository secrets (docs deploy is skipped without them):
+#   VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID
+
+name: Release
+
+on:
+  push:
+    branches: [master, main]
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    name: Build & release package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Typecheck package
+        run: npm run typecheck -w @asyst/atlas
+
+      - name: Build package (tsup + tokens.css + llms.txt)
+        run: npm run build:atlas
+
+      - name: Open "Version Packages" PR
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          version: npm run version-packages
+          title: "chore(release): version packages"
+          commit: "chore(release): version packages"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # No pending changesets = the version PR was just merged (or nothing to
+      # release). Publish the current version to the `release` branch unless
+      # its tag already exists.
+      - name: Publish to release branch + tag
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          VERSION=$(node -p "require('./packages/atlas/package.json').version")
+          TAG="v$VERSION"
+
+          if git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null 2>&1; then
+            echo "$TAG already released — nothing to do."
+            exit 0
+          fi
+
+          OUT=$(mktemp -d)
+          cp -r packages/atlas/dist packages/atlas/README.md "$OUT"/
+          if [ -f packages/atlas/CHANGELOG.md ]; then cp packages/atlas/CHANGELOG.md "$OUT"/; fi
+
+          # Installed-from-git package.json: no build scripts or devDependencies,
+          # so npm installs the prebuilt dist as-is.
+          node -e '
+            const fs = require("fs")
+            const p = require("./packages/atlas/package.json")
+            delete p.scripts
+            delete p.devDependencies
+            fs.writeFileSync(process.argv[1] + "/package.json", JSON.stringify(p, null, 2) + "\n")
+          ' "$OUT"
+
+          cd "$OUT"
+          git init -q
+          git checkout -q -b release
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          # Keep the release branch history: build on top of its last commit.
+          if git fetch -q --depth=1 origin release 2>/dev/null; then
+            git reset -q --soft FETCH_HEAD
+          fi
+          git add -A
+          git commit -q -m "release: @asyst/atlas $TAG"
+          git tag -a "$TAG" -m "@asyst/atlas $TAG"
+          git push origin release
+          git push origin "$TAG"
+          echo "Released $TAG → npm i github:${GITHUB_REPOSITORY}#semver:^$VERSION"
+
+  deploy-docs:
+    name: Deploy docs site
+    needs: release
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Skip notice
+        if: env.VERCEL_TOKEN == ''
+        run: echo "VERCEL_TOKEN not set — skipping docs deploy."
+
+      - name: Deploy to Vercel (production)
+        if: env.VERCEL_TOKEN != ''
+        run: |
+          npx vercel@latest pull --yes --environment=production --token="$VERCEL_TOKEN"
+          npx vercel@latest build --prod --token="$VERCEL_TOKEN"
+          npx vercel@latest deploy --prebuilt --prod --token="$VERCEL_TOKEN"

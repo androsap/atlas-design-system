@@ -79,7 +79,7 @@ import {
     danger800,
     danger900,
     danger950,
-} from "@/tokens/generated"
+} from "@asyst/atlas/tokens"
 import { OnThisPageNav } from "@/components/docs/on-this-page-nav"
 
 function hexToRgb(hex: string) {

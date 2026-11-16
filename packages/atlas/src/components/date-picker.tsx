@@ -3,9 +3,9 @@
 import { useState } from "react"
 import * as Popover from "@radix-ui/react-popover"
 import { CalendarDays } from "lucide-react"
-import { cn } from "@/lib/utils"
-import { Calendar } from "./calendar"
-import { addMonths, formatDateLabel } from "@/lib/calendar-utils"
+import { cn } from "../lib/utils.js"
+import { Calendar } from "./calendar.js"
+import { addMonths, formatDateLabel } from "../lib/calendar-utils.js"
 
 export interface DatePickerProps {
     value?: Date | null

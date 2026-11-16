@@ -1,6 +1,6 @@
 "use client"
 
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@asyst/atlas"
 
 const PLACEMENTS = [
     { side: "top", label: "Top placement" },

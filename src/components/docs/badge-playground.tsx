@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Badge, type BadgeColor, type BadgeVariant, type BadgeSize } from "@/components/ui/badge"
+import { Badge, type BadgeColor, type BadgeVariant, type BadgeSize } from "@asyst/atlas"
 import { CopyButton } from "@/components/docs/copy-button"
 
 const COLORS = ["neutral", "primary", "secondary", "info", "success", "warning", "danger"] as const

@@ -1,6 +1,6 @@
 import { Fragment } from "react"
 import { cn } from "@/lib/utils"
-import type { SwitchColor, SwitchSize } from "@/components/ui/switch"
+import type { SwitchColor, SwitchSize } from "@asyst/atlas"
 
 type StateKey = "default" | "hover" | "focused" | "disabled"
 

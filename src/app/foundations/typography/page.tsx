@@ -14,7 +14,7 @@ import {
     fontSize10,
     fontSize11,
     fontSize12,
-} from "@/tokens/generated"
+} from "@asyst/atlas/tokens"
 
 type TypeRow = {
     label: string

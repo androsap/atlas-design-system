@@ -5,114 +5,46 @@ import { OnThisPageNav } from "@/components/docs/on-this-page-nav"
 
 const STEPS = [
     { id: "prerequisites", label: "Prerequisites" },
-    { id: "install-dependencies", label: "Install core dependencies" },
-    { id: "setup-tokens", label: "Setup design tokens" },
-    { id: "copy-component", label: "Copy your first component" },
+    { id: "install-package", label: "Install the package" },
+    { id: "setup-styles", label: "Setup styles & tokens" },
     { id: "use-in-code", label: "Use it in code" },
+    { id: "ai-assistants", label: "AI assistants (llms.txt)" },
     { id: "next-steps", label: "Next steps" },
 ]
 
-const INSTALL_DEPS = `npm install clsx tailwind-merge`
+const INSTALL = `npm install github:androsap/atlas-design-system#semver:^0.2.0`
 
-const GLOBALS_CSS = `@import '../styles/tokens.css';
-@import "tailwindcss";`
-
-const UTILS_TS = `import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
-
-export function cn(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs))
+const INSTALL_RESULT = `// package.json — the dependency is still named @asyst/atlas
+"dependencies": {
+  "@asyst/atlas": "github:androsap/atlas-design-system#semver:^0.2.0"
 }`
 
-const BUTTON_TSX = `import { cn } from "@/lib/utils"
-import { ButtonHTMLAttributes } from "react"
-import { type LucideIcon } from "lucide-react"
+const GLOBALS_CSS = `/* app/globals.css */
+@import "@asyst/atlas/tokens.css";
+@import "tailwindcss";
 
-export type ButtonColor = "brand" | "neutral" | "danger" | "warning" | "success"
-export type ButtonVariant = "primary" | "secondary" | "tertiary"
-export type ButtonSize = "sm" | "md" | "lg"
+/* Atlas components are styled with Tailwind classes —
+   let Tailwind scan them so those classes get generated. */
+@source "../node_modules/@asyst/atlas/dist";`
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    color?: ButtonColor
-    variant?: ButtonVariant
-    size?: ButtonSize
-    leadingIcon?: LucideIcon
-    trailingIcon?: LucideIcon
-}
+const USAGE_TSX = `import { Button } from "@asyst/atlas"
+import { Plus } from "lucide-react"
 
-const SIZE_CLASSES: Record<ButtonSize, string> = {
-    sm: "gap-1.5 px-3 py-1.5 text-sm",
-    md: "gap-1.5 px-4 py-2 text-sm",
-    lg: "gap-2 px-5 py-2.5 text-base",
-}
-
-const ICON_SIZE: Record<ButtonSize, number> = { sm: 14, md: 16, lg: 18 }
-
-// Filled (primary), Outline (secondary) and Text (tertiary) styles for
-// each color family.
-const COLOR_VARIANT_CLASSES: Record<ButtonColor, Record<ButtonVariant, string>> = {
-    brand: {
-        primary: "bg-[var(--primary500)] text-white hover:bg-[var(--primary600)] active:bg-[var(--primary700)] focus-visible:ring-[var(--primary300)]",
-        secondary: "border border-[var(--primary500)] text-[var(--primary600)] hover:bg-[var(--primary50)] active:bg-[var(--primary100)] focus-visible:ring-[var(--primary300)]",
-        tertiary: "text-[var(--primary600)] hover:bg-[var(--primary50)] active:bg-[var(--primary100)] focus-visible:ring-[var(--primary300)]",
-    },
-    neutral: {
-        primary: "bg-[var(--neutral900)] text-white hover:bg-[var(--neutral800)] active:bg-[var(--neutral950)] focus-visible:ring-[var(--neutral400)]",
-        secondary: "border border-[var(--neutral300)] text-[var(--neutral900)] hover:bg-[var(--neutral50)] active:bg-[var(--neutral100)] focus-visible:ring-[var(--neutral400)]",
-        tertiary: "text-[var(--neutral900)] hover:bg-[var(--neutral50)] active:bg-[var(--neutral100)] focus-visible:ring-[var(--neutral400)]",
-    },
-    danger: {
-        primary: "bg-[var(--danger500)] text-white hover:bg-[var(--danger600)] active:bg-[var(--danger700)] focus-visible:ring-[var(--danger300)]",
-        secondary: "border border-[var(--danger500)] text-[var(--danger600)] hover:bg-[var(--danger50)] active:bg-[var(--danger100)] focus-visible:ring-[var(--danger300)]",
-        tertiary: "text-[var(--danger600)] hover:bg-[var(--danger50)] active:bg-[var(--danger100)] focus-visible:ring-[var(--danger300)]",
-    },
-    warning: {
-        primary: "bg-[var(--warning500)] text-white hover:bg-[var(--warning600)] active:bg-[var(--warning700)] focus-visible:ring-[var(--warning300)]",
-        secondary: "border border-[var(--warning500)] text-[var(--warning600)] hover:bg-[var(--warning50)] active:bg-[var(--warning100)] focus-visible:ring-[var(--warning300)]",
-        tertiary: "text-[var(--warning600)] hover:bg-[var(--warning50)] active:bg-[var(--warning100)] focus-visible:ring-[var(--warning300)]",
-    },
-    success: {
-        primary: "bg-[var(--success500)] text-white hover:bg-[var(--success600)] active:bg-[var(--success700)] focus-visible:ring-[var(--success300)]",
-        secondary: "border border-[var(--success500)] text-[var(--success600)] hover:bg-[var(--success50)] active:bg-[var(--success100)] focus-visible:ring-[var(--success300)]",
-        tertiary: "text-[var(--success600)] hover:bg-[var(--success50)] active:bg-[var(--success100)] focus-visible:ring-[var(--success300)]",
-    },
-}
-
-export function Button({
-    color = "brand",
-    variant = "primary",
-    size = "md",
-    leadingIcon: LeadingIcon,
-    trailingIcon: TrailingIcon,
-    className,
-    children,
-    ...props
-}: ButtonProps) {
-    const iconSize = ICON_SIZE[size]
+export default function Page() {
     return (
-        <button
-            className={cn(
-                "inline-flex cursor-pointer items-center justify-center rounded-[var(--radius-md)] font-medium transition-colors",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
-                "disabled:pointer-events-none disabled:opacity-40",
-                COLOR_VARIANT_CLASSES[color][variant],
-                SIZE_CLASSES[size],
-                className
-            )}
-            {...props}
-        >
-            {LeadingIcon && <LeadingIcon size={iconSize} aria-hidden />}
-            {children}
-            {TrailingIcon && <TrailingIcon size={iconSize} aria-hidden />}
-        </button>
+        <Button color="brand" variant="primary" leadingIcon={Plus}>
+            Get started
+        </Button>
     )
 }`
 
-const USAGE_TSX = `import { Button } from "@/components/ui/button"
+const DARK_MODE = `<html data-theme="dark">`
 
-export default function Page() {
-    return <Button variant="primary">Get started</Button>
-}`
+const TOKENS_TS = `import { primary500, size16 } from "@asyst/atlas/tokens"`
+
+function Code({ children }: { children: React.ReactNode }) {
+    return <code className="rounded bg-[var(--neutral100)] px-1.5 py-0.5 font-mono text-xs">{children}</code>
+}
 
 function StepCta({ href, children }: { href: string; children: React.ReactNode }) {
     return (
@@ -160,9 +92,9 @@ export default function GettingStartedPage() {
                     Add Atlas to your project
                 </h1>
                 <p className="mt-4 max-w-2xl text-[var(--text-accent-subtle-body)]" style={{ font: "var(--bodyLg)" }}>
-                    Atlas isn&apos;t an npm package — components are copied straight into your
-                    codebase, the same way shadcn/ui works. You own the code, so you can change
-                    anything without waiting on a release.
+                    Atlas ships as a single package, <Code>@asyst/atlas</Code>, installed straight from GitHub — every component,
+                    the design tokens and the theme. This documentation site is built from that
+                    exact package, so what you see here is what you install.
                 </p>
             </div>
 
@@ -171,73 +103,67 @@ export default function GettingStartedPage() {
                     <Step number={1} id="prerequisites" title="Prerequisites">
                         <p>Make sure you already have a project with:</p>
                         <ul className="list-inside list-disc space-y-1">
-                            <li>Next.js (App Router) with TypeScript</li>
+                            <li>React 18 or newer</li>
                             <li>Tailwind CSS v4 configured</li>
                         </ul>
                         <p>
-                            This site itself runs on that exact stack — Next.js{" "}
-                            <code className="rounded bg-[var(--neutral100)] px-1.5 py-0.5 font-mono text-xs">16</code>,
-                            React{" "}
-                            <code className="rounded bg-[var(--neutral100)] px-1.5 py-0.5 font-mono text-xs">19</code>,
-                            Tailwind{" "}
-                            <code className="rounded bg-[var(--neutral100)] px-1.5 py-0.5 font-mono text-xs">v4</code>.
+                            This site itself runs on Next.js <Code>16</Code>, React <Code>19</Code> and
+                            Tailwind <Code>v4</Code>. Components that need the browser are marked{" "}
+                            <Code>&quot;use client&quot;</Code>, so the package works in the Next.js App
+                            Router out of the box.
                         </p>
                     </Step>
 
-                    <Step number={2} id="install-dependencies" title="Install core dependencies">
+                    <Step number={2} id="install-package" title="Install the package">
                         <p>
-                            Atlas components lean on two small utilities to merge Tailwind classes
-                            safely — not the design system itself, since there is no design
-                            system package to install.
+                            Atlas is distributed from GitHub, not the npm registry. Each release
+                            is a tagged build on the <Code>release</Code> branch, so npm can follow
+                            semver ranges the same way it does for registry packages:
                         </p>
-                        <CodeBlock code={INSTALL_DEPS} lang="bash" />
+                        <CodeBlock code={INSTALL} lang="bash" />
+                        <CodeBlock code={INSTALL_RESULT} lang="json" />
+                        <p>
+                            Use <Code>#v0.2.0</Code> to pin an exact version, or{" "}
+                            <Code>#release</Code> for the latest build.
+                        </p>
+                        <p>
+                            <Code>react</Code>, <Code>react-dom</Code> and <Code>tailwindcss</Code> are
+                            peer dependencies — they come from your project. Everything else (Radix
+                            primitives, lucide-react, clsx, tailwind-merge) is installed for you.
+                        </p>
                     </Step>
 
-                    <Step number={3} id="setup-tokens" title="Setup design tokens">
-                        <p>
-                            Copy{" "}
-                            <code className="rounded bg-[var(--neutral100)] px-1.5 py-0.5 font-mono text-xs">
-                                src/styles/tokens.css
-                            </code>{" "}
-                            from this repo into your project, then import it before Tailwind in
-                            your global stylesheet:
-                        </p>
+                    <Step number={3} id="setup-styles" title="Setup styles & tokens">
+                        <p>Import the Atlas tokens before Tailwind in your global stylesheet:</p>
                         <CodeBlock code={GLOBALS_CSS} lang="css" />
                         <p>
                             Every component reads colors and radii from these tokens as CSS
-                            variables (e.g. <code className="rounded bg-[var(--neutral100)] px-1.5 py-0.5 font-mono text-xs">var(--primary500)</code>),
-                            so this step has to come before you copy any component.
+                            variables (e.g. <Code>var(--primary500)</Code>). Adjust the{" "}
+                            <Code>@source</Code> path so it points at <Code>node_modules</Code> from
+                            your CSS file. For dark mode, set the theme attribute on the root element:
                         </p>
+                        <CodeBlock code={DARK_MODE} lang="tsx" />
+                        <p>Need token values in JavaScript? They&apos;re exported too:</p>
+                        <CodeBlock code={TOKENS_TS} lang="tsx" />
                         <StepCta href="/foundations">Explore foundations</StepCta>
                     </Step>
 
-                    <Step number={4} id="copy-component" title="Copy your first component">
-                        <p>
-                            Start with Button. Create{" "}
-                            <code className="rounded bg-[var(--neutral100)] px-1.5 py-0.5 font-mono text-xs">
-                                src/lib/utils.ts
-                            </code>
-                            :
-                        </p>
-                        <CodeBlock code={UTILS_TS} lang="tsx" />
-                        <p>
-                            Then create{" "}
-                            <code className="rounded bg-[var(--neutral100)] px-1.5 py-0.5 font-mono text-xs">
-                                src/components/ui/button.tsx
-                            </code>{" "}
-                            — this is the exact source from{" "}
-                            <Link href="/components/button" className="text-[var(--text-link)] hover:underline">
-                                the Button page
-                            </Link>
-                            :
-                        </p>
-                        <CodeBlock code={BUTTON_TSX} lang="tsx" />
+                    <Step number={4} id="use-in-code" title="Use it in code">
+                        <p>Import any component from the package root:</p>
+                        <CodeBlock code={USAGE_TSX} lang="tsx" />
                         <StepCta href="/components">Browse components</StepCta>
                     </Step>
 
-                    <Step number={5} id="use-in-code" title="Use it in code">
-                        <p>Import and render it like any other component:</p>
-                        <CodeBlock code={USAGE_TSX} lang="tsx" />
+                    <Step number={5} id="ai-assistants" title="AI assistants (llms.txt)">
+                        <p>
+                            Every release includes an auto-generated <Code>llms.txt</Code> — each
+                            component&apos;s props, valid values, defaults and a one-line example,
+                            read straight from the TypeScript types. Point your coding assistant at{" "}
+                            <a href="/llms.txt" className="text-[var(--text-link)] hover:underline">
+                                /llms.txt
+                            </a>{" "}
+                            or at <Code>node_modules/@asyst/atlas/dist/llms.txt</Code>.
+                        </p>
                     </Step>
 
                     <Step number={6} id="next-steps" title="Next steps">
@@ -254,7 +180,13 @@ export default function GettingStartedPage() {
                                 <Link href="/components" className="text-[var(--text-link)] hover:underline">
                                     Components
                                 </Link>{" "}
-                                — browse what&apos;s ready to copy next.
+                                — every component with live playgrounds and props.
+                            </li>
+                            <li>
+                                <Link href="/changelog" className="text-[var(--text-link)] hover:underline">
+                                    Changelog
+                                </Link>{" "}
+                                — what changed in each release.
                             </li>
                         </ul>
                     </Step>

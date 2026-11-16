@@ -34,7 +34,7 @@ import {
     Loader2,
     UploadCloud,
 } from "lucide-react"
-import { size16, size20, size24, size32, size40 } from "@/tokens/generated"
+import { size16, size20, size24, size32, size40 } from "@asyst/atlas/tokens"
 
 // Icons actually imported and used across this codebase — grep-verified,
 // not a curated "best of" list.

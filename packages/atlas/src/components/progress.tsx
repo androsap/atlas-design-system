@@ -1,7 +1,7 @@
 "use client"
 
 import { useId } from "react"
-import { cn } from "@/lib/utils"
+import { cn } from "../lib/utils.js"
 
 export type ProgressColor = "neutral" | "info" | "danger"
 export type ProgressLayout = "stacked" | "inline"

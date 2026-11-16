@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Spinner } from "@/components/ui/spinner"
+import { Spinner } from "@asyst/atlas"
 
 export function SpinnerButtonDemo() {
     const [status, setStatus] = useState<"idle" | "loading" | "done">("idle")

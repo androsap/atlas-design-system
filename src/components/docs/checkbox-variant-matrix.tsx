@@ -1,4 +1,4 @@
-import { Checkbox, type CheckboxColor, type CheckboxSize } from "@/components/ui/checkbox"
+import { Checkbox, type CheckboxColor, type CheckboxSize } from "@asyst/atlas"
 
 type Group = { label: string; color: CheckboxColor; disabled?: boolean }
 

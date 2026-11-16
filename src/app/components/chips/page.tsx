@@ -28,7 +28,7 @@ const ACCESSIBILITY_NOTES = [
 ]
 
 const FILTER_CODE = `import { useState } from "react"
-import { Chip } from "@/components/ui/chip"
+import { Chip } from "@asyst/atlas"
 
 const CATEGORIES = ["Design", "Engineering", "Marketing", "Sales"]
 
@@ -52,7 +52,7 @@ export function CategoryFilter() {
 }`
 
 const REMOVABLE_CODE = `import { useState } from "react"
-import { Chip } from "@/components/ui/chip"
+import { Chip } from "@asyst/atlas"
 
 export function TagList() {
     const [tags, setTags] = useState(["React", "TypeScript", "Tailwind"])

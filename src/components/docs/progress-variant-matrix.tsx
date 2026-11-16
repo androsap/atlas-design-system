@@ -1,5 +1,5 @@
-import { Progress } from "@/components/ui/progress"
-import type { ProgressColor } from "@/components/ui/progress"
+import { Progress } from "@asyst/atlas"
+import type { ProgressColor } from "@asyst/atlas"
 
 const COLORS: { key: ProgressColor; label: string }[] = [
     { key: "neutral", label: "Neutral" },

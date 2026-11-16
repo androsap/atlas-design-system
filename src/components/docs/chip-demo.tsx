@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Hash } from "lucide-react"
-import { Chip } from "@/components/ui/chip"
+import { Chip } from "@asyst/atlas"
 
 /**
  * Client-only wrapper for the Overview/Anatomy demos — the leading icon

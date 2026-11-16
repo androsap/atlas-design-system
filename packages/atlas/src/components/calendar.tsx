@@ -1,8 +1,8 @@
 "use client"
 
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { cn } from "@/lib/utils"
-import { getMonthGrid, isSameDay, isWeekend, formatMonthLabel, WEEKDAY_HEADERS } from "@/lib/calendar-utils"
+import { cn } from "../lib/utils.js"
+import { getMonthGrid, isSameDay, isWeekend, formatMonthLabel, WEEKDAY_HEADERS } from "../lib/calendar-utils.js"
 
 export interface CalendarProps {
     /** Any date within the month to display — only year/month are read. */

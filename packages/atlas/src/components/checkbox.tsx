@@ -1,9 +1,9 @@
 "use client"
 
-import { cn } from "@/lib/utils"
+import { cn } from "../lib/utils.js"
 import { forwardRef, InputHTMLAttributes, useEffect, useId, useRef } from "react"
 import { Check, Minus } from "lucide-react"
-import { mergeRefs } from "@/lib/merge-refs"
+import { mergeRefs } from "../lib/merge-refs.js"
 
 export type CheckboxColor = "primary" | "danger" | "neutral"
 export type CheckboxSize = "sm" | "md"

@@ -1,7 +1,7 @@
 import { Fragment } from "react"
 import { RefreshCw } from "lucide-react"
 import { cn } from "@/lib/utils"
-import type { ButtonColor, ButtonVariant, ButtonSize } from "@/components/ui/button"
+import type { ButtonColor, ButtonVariant, ButtonSize } from "@asyst/atlas"
 
 type StateKey = "default" | "hover" | "pressed" | "focused" | "disabled"
 

@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { ShoppingCart, Hash } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@asyst/atlas"
 
 export function BadgeCartDemo() {
     const [count, setCount] = useState(3)

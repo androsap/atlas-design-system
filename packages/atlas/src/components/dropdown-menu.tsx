@@ -3,7 +3,7 @@
 import * as RadixDropdown from "@radix-ui/react-dropdown-menu"
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from "react"
 import { type LucideIcon } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { cn } from "../lib/utils.js"
 
 export const DropdownMenu = RadixDropdown.Root
 export const DropdownMenuTrigger = RadixDropdown.Trigger
@@ -50,10 +50,10 @@ export const DropdownMenuSeparator = forwardRef<
     return <RadixDropdown.Separator ref={ref} className={cn("my-1.5 h-px bg-[var(--neutral100)]", className)} {...props} />
 })
 
-type ItemVariant = "default" | "danger"
+export type DropdownMenuItemVariant = "default" | "danger"
 
-interface DropdownMenuItemProps extends ComponentPropsWithoutRef<typeof RadixDropdown.Item> {
-    variant?: ItemVariant
+export interface DropdownMenuItemProps extends ComponentPropsWithoutRef<typeof RadixDropdown.Item> {
+    variant?: DropdownMenuItemVariant
     /** Visually marks this as the currently active/selected item. */
     active?: boolean
     /** Docs-only: force the hover/highlighted look without real pointer

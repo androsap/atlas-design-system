@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Chip, type ChipColor, type ChipVariant, type ChipSize } from "@/components/ui/chip"
+import { Chip, type ChipColor, type ChipVariant, type ChipSize } from "@asyst/atlas"
 import { CopyButton } from "@/components/docs/copy-button"
 
 const COLORS = ["neutral", "primary", "success", "warning", "danger"] as const

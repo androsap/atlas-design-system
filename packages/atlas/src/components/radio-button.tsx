@@ -1,6 +1,6 @@
 "use client"
 
-import { cn } from "@/lib/utils"
+import { cn } from "../lib/utils.js"
 import { forwardRef, InputHTMLAttributes, useId } from "react"
 
 export type RadioColor = "primary" | "danger" | "neutral"

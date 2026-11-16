@@ -8,7 +8,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
     type TooltipVariant,
-} from "@/components/ui/tooltip"
+} from "@asyst/atlas"
 import { CopyButton } from "@/components/docs/copy-button"
 
 const VARIANTS = ["dark", "light"] as const

@@ -4,7 +4,7 @@ import { CodeBlock } from "@/components/docs/code-block"
 import { DropdownPlayground } from "@/components/docs/dropdown-playground"
 import { DropdownStatesPanel } from "@/components/docs/dropdown-states-panel"
 import { DropdownDemo } from "@/components/docs/dropdown-demo"
-import { Button } from "@/components/ui/button"
+import { Button } from "@asyst/atlas"
 
 const USAGE_DO = [
     "Use a Dropdown when there are too many options for a Radio group, or the options are secondary to the main task.",
@@ -29,7 +29,7 @@ const ACCESSIBILITY_NOTES = [
 ]
 
 const IMPORT_CODE = `import { ChevronDown, Settings } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button } from "@asyst/atlas"
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -37,7 +37,7 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@asyst/atlas"
 
 export function Example() {
     return (

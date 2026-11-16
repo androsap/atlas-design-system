@@ -17,7 +17,7 @@ import {
     size64,
     size72,
     size80,
-} from "@/tokens/generated"
+} from "@asyst/atlas/tokens"
 
 type TypeKey = "icon" | "logo" | "memoji" | "initial" | "picture"
 type ColorKey = "neutral" | "primary" | "info" | "success" | "danger" | "warning"

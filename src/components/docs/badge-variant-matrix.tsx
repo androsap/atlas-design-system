@@ -1,6 +1,6 @@
 import { Hash } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
-import type { BadgeColor, BadgeVariant, BadgeSize } from "@/components/ui/badge"
+import { Badge } from "@asyst/atlas"
+import type { BadgeColor, BadgeVariant, BadgeSize } from "@asyst/atlas"
 
 const COLORS: { key: BadgeColor; label: string }[] = [
     { key: "neutral", label: "Neutral" },

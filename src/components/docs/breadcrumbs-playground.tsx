@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Home } from "lucide-react"
-import { Breadcrumbs } from "@/components/ui/breadcrumbs"
+import { Breadcrumbs } from "@asyst/atlas"
 import { CopyButton } from "@/components/docs/copy-button"
 
 const TRAIL = [

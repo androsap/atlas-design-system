@@ -3,7 +3,7 @@ import { DocsTabs } from "@/components/docs/docs-tabs"
 import { CodeBlock } from "@/components/docs/code-block"
 import { InputPlayground } from "@/components/docs/input-playground"
 import { InputFormStatesMatrix, TextareaStatesMatrix } from "@/components/docs/input-variant-matrix"
-import { Input } from "@/components/ui/input"
+import { Input } from "@asyst/atlas"
 
 const USAGE_DO = [
     "Always pair a field with a visible label — placeholder text alone isn't an accessible label.",
@@ -27,8 +27,8 @@ const ACCESSIBILITY_NOTES = [
     "leadingIcon / trailingIcon render with aria-hidden — decorative only, the accessible name still comes from the label.",
 ]
 
-const IMPORT_CODE = `import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+const IMPORT_CODE = `import { Input } from "@asyst/atlas"
+import { Textarea } from "@asyst/atlas"
 import { Settings } from "lucide-react"
 
 export function Example() {

@@ -1,4 +1,4 @@
-import { Uploader } from "@/components/ui/uploader"
+import { Uploader } from "@asyst/atlas"
 
 export function UploaderVariantMatrix() {
     return (
